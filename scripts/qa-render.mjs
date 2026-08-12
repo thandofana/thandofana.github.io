@@ -76,11 +76,11 @@ try {
   assert.ok(html.includes('href="tel:+26879711996"'), 'The first phone number must render.')
   assert.ok(html.includes('href="tel:+26878700044"'), 'The second phone number must render.')
   assert.ok(
-    html.includes('class="contact__label">Email</span>'),
+    html.includes('class="contact__label">Email:</strong>'),
     'The email address must have a visible label.',
   )
   assert.ok(
-    html.includes('class="contact__label">Phone</span>'),
+    html.includes('class="contact__label">Phone:</strong>'),
     'The phone numbers must have a visible label.',
   )
   assert.ok(!html.includes('End-to-end workflow'), 'The previous hero graphic must not render.')

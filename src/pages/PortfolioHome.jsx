@@ -128,14 +128,14 @@ function PortfolioHome() {
         >
           <Container>
             <div className="contact__inner">
-              <h2 id="contact-title">Contact</h2>
+              <h2 id="contact-title">Contact details</h2>
               <address className="contact__details">
                 <div className="contact__item">
-                  <span className="contact__label">Email</span>
+                  <strong className="contact__label">Email:</strong>
                   <a href={`mailto:${profile.email}`}>{profile.email}</a>
                 </div>
                 <div className="contact__item">
-                  <span className="contact__label">Phone</span>
+                  <strong className="contact__label">Phone:</strong>
                   <span className="contact__phones">
                     {profile.phones.map((phone, index) => (
                       <span className="contact__phone" key={phone.href}>
