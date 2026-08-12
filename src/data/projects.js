@@ -30,7 +30,7 @@ const projects = [
     responsibleUse:
       'Proof of concept for analysis and decision support—not a financial eligibility or credit-decision system.',
     technologies: ['Python', 'Scikit-learn', 'SHAP', 'FastAPI', 'Next.js', 'React', 'TypeScript'],
-    githubUrl: 'https://github.com/thandofana/finaccess-eswatini',
+    readmeUrl: 'https://github.com/thandofana/finaccess-eswatini/blob/main/README.md',
     liveUrl: 'https://finaccess-eswatini.vercel.app',
     featured: true,
   },

@@ -41,7 +41,7 @@ function ProjectsSection({ projects }) {
                   <p className="project-summary__description">{project.description}</p>
                   <div className="button-row project-summary__actions">
                     <Button href={project.liveUrl}>Live project</Button>
-                    <Button href={project.githubUrl} variant="secondary">GitHub README</Button>
+                    <Button href={project.readmeUrl} variant="secondary">GitHub README</Button>
                   </div>
                 </div>
 

@@ -72,6 +72,10 @@ try {
   )
   assert.ok(html.includes('Projects, briefly.'), 'The concise projects section must render.')
   assert.ok(html.includes('GitHub README'), 'Each project must link to its README.')
+  assert.ok(
+    html.includes('https://github.com/thandofana/finaccess-eswatini/blob/main/README.md'),
+    'The project README link must bypass the repository file listing.',
+  )
   assert.ok(!html.includes('Product architecture'), 'Repository structure must not render.')
   assert.ok(!html.includes('From raw evidence to a deployed application.'), 'The long case study must not render.')
 

@@ -64,4 +64,4 @@ src/
 
 ## Adding future projects
 
-Add a verified project object to `src/data/projects.js`. The data model supports a title, slug, category, descriptions, technologies, image, GitHub URL, live URL, and featured status. Do not add placeholder or unverified projects.
+Add a verified project object to `src/data/projects.js`. The data model supports a title, slug, category, descriptions, technologies, image, direct README URL, live URL, and featured status. Do not add placeholder or unverified projects.
