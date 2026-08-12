@@ -71,10 +71,19 @@ try {
     'Verified professional learning must render.',
   )
   assert.ok(html.includes('Projects, briefly.'), 'The concise projects section must render.')
-  assert.ok(html.includes('GitHub README'), 'Each project must link to its README.')
+  assert.ok(html.includes('GitHub README'), 'The completed project must link to its README.')
   assert.ok(
     html.includes('https://github.com/thandofana/finaccess-eswatini/blob/main/README.md'),
     'The project README link must bypass the repository file listing.',
+  )
+  assert.ok(
+    html.includes('Eswatini Trade Intelligence Platform'),
+    'The Trade Intelligence work-in-progress project must render.',
+  )
+  assert.ok(html.includes('Work in progress'), 'The in-progress project status must render.')
+  assert.ok(
+    html.includes('Data acquisition &amp; audit'),
+    'The current Trade Intelligence phase must render.',
   )
   assert.ok(!html.includes('Product architecture'), 'Repository structure must not render.')
   assert.ok(!html.includes('From raw evidence to a deployed application.'), 'The long case study must not render.')

@@ -16,15 +16,14 @@ function ProjectsSection({ projects }) {
             <h2 id="projects-title">Projects, briefly.</h2>
           </div>
           <p>
-            Concise summaries of the problem, evidence, solution, and result. Full technical detail
-            remains available in each project repository.
+            Concise summaries of completed work and projects currently in development.
           </p>
         </div>
 
         <div className="project-list">
           {projects.map((project, index) => (
             <article
-              className="project-summary"
+              className={`project-summary project-summary--${project.status}`}
               id={project.slug}
               aria-labelledby={`${project.slug}-title`}
               tabIndex="-1"
@@ -33,51 +32,87 @@ function ProjectsSection({ projects }) {
               <div className="project-summary__intro">
                 <div>
                   <p className="project-summary__meta">
-                    <span>{String(index + 1).padStart(2, '0')}</span>
+                    <span className="project-summary__number">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
                     {project.category}
+                    <span
+                      className={`project-summary__status project-summary__status--${project.status}`}
+                    >
+                      {project.statusLabel}
+                    </span>
                   </p>
                   <h3 id={`${project.slug}-title`}>{project.title}</h3>
                   <p className="project-summary__subtitle">{project.subtitle}</p>
                   <p className="project-summary__description">{project.description}</p>
-                  <div className="button-row project-summary__actions">
-                    <Button href={project.liveUrl}>Live project</Button>
-                    <Button href={project.readmeUrl} variant="secondary">GitHub README</Button>
-                  </div>
+                  {(project.liveUrl || project.readmeUrl) && (
+                    <div className="button-row project-summary__actions">
+                      {project.liveUrl && <Button href={project.liveUrl}>Live project</Button>}
+                      {project.readmeUrl && (
+                        <Button href={project.readmeUrl} variant="secondary">
+                          GitHub README
+                        </Button>
+                      )}
+                    </div>
+                  )}
                 </div>
 
-                <a
-                  className="project-summary__image"
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`Open the live ${project.title} application in a new tab`}
-                >
-                  <img
-                    src={project.image}
-                    width={project.imageWidth}
-                    height={project.imageHeight}
-                    loading="lazy"
-                    decoding="async"
-                    alt={project.imageAlt}
-                  />
-                </a>
+                {project.image && project.liveUrl ? (
+                  <a
+                    className="project-summary__image"
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Open the live ${project.title} application in a new tab`}
+                  >
+                    <img
+                      src={project.image}
+                      width={project.imageWidth}
+                      height={project.imageHeight}
+                      loading="lazy"
+                      decoding="async"
+                      alt={project.imageAlt}
+                    />
+                  </a>
+                ) : (
+                  project.currentFocus && (
+                    <div className="project-summary__progress">
+                      <p>{project.currentFocus.label}</p>
+                      <strong>{project.currentFocus.title}</strong>
+                      <span>{project.currentFocus.description}</span>
+                      <ol aria-label="Current data foundation workflow">
+                        {project.currentFocus.flow.map((step) => (
+                          <li key={step}>{step}</li>
+                        ))}
+                      </ol>
+                    </div>
+                  )
+                )}
               </div>
 
-              <div className="project-summary__details">
-                <div>
-                  <p className="project-summary__label">Selected evidence</p>
-                  <dl className="project-summary__metrics">
-                    {project.metrics.map((metric) => (
-                      <div key={metric.label}>
-                        <dt>{metric.value}</dt>
-                        <dd>{metric.label}</dd>
-                      </div>
-                    ))}
-                  </dl>
-                </div>
+              <div
+                className={`project-summary__details${
+                  project.metrics?.length ? '' : ' project-summary__details--single'
+                }`}
+              >
+                {project.metrics?.length > 0 && (
+                  <div>
+                    <p className="project-summary__label">Selected evidence</p>
+                    <dl className="project-summary__metrics">
+                      {project.metrics.map((metric) => (
+                        <div key={metric.label}>
+                          <dt>{metric.value}</dt>
+                          <dd>{metric.label}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </div>
+                )}
 
                 <div>
-                  <p className="project-summary__label">What I built</p>
+                  <p className="project-summary__label">
+                    {project.highlightsLabel || 'What I built'}
+                  </p>
                   <ul className="project-summary__highlights">
                     {project.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
                   </ul>
