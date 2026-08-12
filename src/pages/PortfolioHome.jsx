@@ -130,14 +130,21 @@ function PortfolioHome() {
             <div className="contact__inner">
               <h2 id="contact-title">Contact</h2>
               <address className="contact__details">
-                <a href={`mailto:${profile.email}`}>{profile.email}</a>
-                <span aria-hidden="true">/</span>
-                {profile.phones.map((phone, index) => (
-                  <span className="contact__phone" key={phone.href}>
-                    <a href={phone.href}>{phone.display}</a>
-                    {index < profile.phones.length - 1 && <span aria-hidden="true">/</span>}
+                <div className="contact__item">
+                  <span className="contact__label">Email</span>
+                  <a href={`mailto:${profile.email}`}>{profile.email}</a>
+                </div>
+                <div className="contact__item">
+                  <span className="contact__label">Phone</span>
+                  <span className="contact__phones">
+                    {profile.phones.map((phone, index) => (
+                      <span className="contact__phone" key={phone.href}>
+                        <a href={phone.href}>{phone.display}</a>
+                        {index < profile.phones.length - 1 && <span aria-hidden="true">/</span>}
+                      </span>
+                    ))}
                   </span>
-                ))}
+                </div>
               </address>
             </div>
           </Container>

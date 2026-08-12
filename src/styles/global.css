@@ -1728,18 +1728,34 @@ p {
 }
 
 .contact__details {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-end;
-  gap: var(--space-3);
+  display: grid;
+  min-width: min(100%, 31rem);
+  gap: var(--space-4);
   color: var(--color-text-muted);
   font-style: normal;
+}
+
+.contact__item {
+  display: grid;
+  align-items: baseline;
+  gap: var(--space-5);
+  grid-template-columns: 4rem minmax(0, 1fr);
+}
+
+.contact__label {
+  color: var(--color-accent-strong);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-style: normal;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .contact__details a {
   color: var(--color-text);
   font-weight: 700;
+  overflow-wrap: anywhere;
   text-decoration-color: var(--color-accent);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.35rem;
@@ -1752,6 +1768,16 @@ p {
 .contact__phone {
   display: inline-flex;
   align-items: center;
+  gap: var(--space-3);
+}
+
+.contact__phone a {
+  white-space: nowrap;
+}
+
+.contact__phones {
+  display: flex;
+  flex-wrap: wrap;
   gap: var(--space-3);
 }
 

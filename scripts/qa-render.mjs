@@ -75,6 +75,14 @@ try {
   )
   assert.ok(html.includes('href="tel:+26879711996"'), 'The first phone number must render.')
   assert.ok(html.includes('href="tel:+26878700044"'), 'The second phone number must render.')
+  assert.ok(
+    html.includes('class="contact__label">Email</span>'),
+    'The email address must have a visible label.',
+  )
+  assert.ok(
+    html.includes('class="contact__label">Phone</span>'),
+    'The phone numbers must have a visible label.',
+  )
   assert.ok(!html.includes('End-to-end workflow'), 'The previous hero graphic must not render.')
   assert.ok(!html.includes('Core workflow capabilities'), 'The old capability strip must not render.')
   assert.ok(html.includes('Datamatics Eswatini'), 'Verified internship experience must render.')
