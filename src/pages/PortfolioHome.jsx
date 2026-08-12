@@ -80,10 +80,10 @@ function PortfolioHome() {
               </div>
               <div className="about-copy">
                 <p>
-                  I am a junior data scientist based in Eswatini, focused on transforming complex
-                  datasets into clear, decision-ready insights. My work combines data cleaning,
-                  exploratory and statistical analysis, machine learning, and explainable AI with
-                  an emphasis on dependable methods and clear communication.
+                  A junior data scientist, focused on transforming complex datasets into clear,
+                  decision-ready insights. My work combines data cleaning, exploratory and
+                  statistical analysis and machine learning, with an emphasis on dependable methods
+                  and clear communication.
                 </p>
                 <p>
                   I also develop dashboards, APIs, and analytical applications that make results

@@ -66,6 +66,10 @@ try {
   assert.ok(!html.includes('LinkedIn'), 'The unverified LinkedIn placeholder must remain hidden.')
   assert.ok(html.includes('Junior Data Scientist'), 'The current professional title must render.')
   assert.ok(
+    html.includes('A junior data scientist, focused on transforming complex datasets'),
+    'The approved About introduction must render.',
+  )
+  assert.ok(
     !html.includes('Final-year BSc Information Technology student'),
     'The outdated student introduction must not render.',
   )
