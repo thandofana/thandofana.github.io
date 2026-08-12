@@ -47,6 +47,15 @@ function BackgroundSection() {
                     {certification.issuer} ·{' '}
                     <time dateTime={certification.dateTime}>{certification.date}</time>
                   </span>
+                  <a
+                    className="credential-list__link"
+                    href={certification.certificateUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`View the ${certification.name} certificate PDF in a new tab`}
+                  >
+                    View certificate <span aria-hidden="true">↗</span>
+                  </a>
                 </li>
               ))}
             </ul>

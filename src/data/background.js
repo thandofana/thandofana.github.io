@@ -17,11 +17,13 @@ export const certifications = [
     issuer: 'Google / Coursera',
     date: 'March 2023',
     dateTime: '2023-03',
+    certificateUrl: '/certificates/google-data-analytics.pdf',
   },
   {
     name: 'Excel Skills for Data Analytics and Visualization Specialization',
     issuer: 'Macquarie University / Coursera',
     date: 'April 2023',
     dateTime: '2023-04',
+    certificateUrl: '/certificates/excel-data-analysis.pdf',
   },
 ]

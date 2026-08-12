@@ -70,6 +70,14 @@ try {
     html.includes('Google Data Analytics Professional Certificate'),
     'Verified professional learning must render.',
   )
+  assert.ok(
+    html.includes('href="/certificates/google-data-analytics.pdf"'),
+    'The Google Data Analytics certificate PDF must be linked.',
+  )
+  assert.ok(
+    html.includes('href="/certificates/excel-data-analysis.pdf"'),
+    'The Excel Data Analysis certificate PDF must be linked.',
+  )
   assert.ok(html.includes('Projects, briefly.'), 'The concise projects section must render.')
   assert.ok(html.includes('GitHub README'), 'The completed project must link to its README.')
   assert.ok(
