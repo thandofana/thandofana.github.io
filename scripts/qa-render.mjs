@@ -39,7 +39,7 @@ try {
   assert.ok(landmarks.nav >= 1, 'The page must contain a navigation landmark.')
   assert.equal(headings.h1, 1, 'The page must contain exactly one h1.')
   assert.deepEqual(missingAnchorTargets, [], 'Every same-page link must resolve to an element ID.')
-  assert.equal(images.length, 5, 'All five approved FinAccess images must render.')
+  assert.equal(images.length, 1, 'The concise project presentation must render one preview image.')
   assert.ok(
     images.every((image) => /\balt="[^"]+"/.test(image)),
     'Every rendered image must have descriptive alternative text.',
@@ -70,6 +70,10 @@ try {
     html.includes('Google Data Analytics Professional Certificate'),
     'Verified professional learning must render.',
   )
+  assert.ok(html.includes('Projects, briefly.'), 'The concise projects section must render.')
+  assert.ok(html.includes('GitHub README'), 'Each project must link to its README.')
+  assert.ok(!html.includes('Product architecture'), 'Repository structure must not render.')
+  assert.ok(!html.includes('From raw evidence to a deployed application.'), 'The long case study must not render.')
 
   console.log(
     JSON.stringify(

@@ -5,7 +5,7 @@ import Container from './Container.jsx'
 const navigation = [
   { label: 'About', href: '#about' },
   { label: 'Background', href: '#background' },
-  { label: 'Work', href: '#finaccess' },
+  { label: 'Work', href: '#projects' },
   { label: 'Skills', href: '#skills' },
   { label: 'Contact', href: '#contact' },
 ]
@@ -78,10 +78,10 @@ function SiteHeader() {
           ))}
           <a
             className="site-nav__contact"
-            href="#finaccess"
+            href="#projects"
             onClick={closeMenu}
           >
-            View project <span aria-hidden="true">→</span>
+            View work <span aria-hidden="true">→</span>
           </a>
         </nav>
       </Container>

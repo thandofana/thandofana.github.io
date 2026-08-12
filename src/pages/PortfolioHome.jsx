@@ -1,14 +1,12 @@
 import Button from '../components/Button.jsx'
 import BackgroundSection from '../components/BackgroundSection.jsx'
 import Container from '../components/Container.jsx'
-import ProjectCaseStudy from '../components/finaccess/ProjectCaseStudy.jsx'
+import ProjectsSection from '../components/ProjectsSection.jsx'
 import SiteFooter from '../components/SiteFooter.jsx'
 import SiteHeader from '../components/SiteHeader.jsx'
 import profile from '../data/profile.js'
 import projects from '../data/projects.js'
 import skillGroups from '../data/skills.js'
-
-const featuredProject = projects.find((project) => project.featured)
 
 function PortfolioHome() {
   return (
@@ -26,7 +24,7 @@ function PortfolioHome() {
                 <p className="hero__role">{profile.professionalTitle}</p>
                 <p className="lead">{profile.intro}</p>
                 <div className="button-row">
-                  <Button href="#finaccess">View project</Button>
+                  <Button href="#projects">View work</Button>
                   <Button href={profile.github} variant="secondary">GitHub</Button>
                   {profile.cv && <Button href={profile.cv} variant="secondary">Download CV</Button>}
                 </div>
@@ -102,7 +100,7 @@ function PortfolioHome() {
 
         <BackgroundSection />
 
-        <ProjectCaseStudy project={featuredProject} />
+        <ProjectsSection projects={projects} />
 
         <section className="section" id="skills" aria-labelledby="skills-title" tabIndex="-1">
           <Container>

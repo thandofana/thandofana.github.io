@@ -1,6 +1,6 @@
 # Thando F. Dlamini — Data Portfolio
 
-A responsive data-analysis and data-science portfolio built with React and Vite. It presents verified professional background, technical capabilities, and a long-form case study focused on problem, evidence, modelling, results, and product delivery.
+A responsive data-analysis and data-science portfolio built with React and Vite. It presents verified professional background, technical capabilities, and concise project summaries focused on problem, evidence, solution, and result.
 
 ## Live site
 
@@ -47,7 +47,7 @@ public/                  # Favicon, social card, robots, and sitemap
 scripts/                 # Repeatable rendered-page QA
 src/
 ├── assets/finaccess/    # Verified FinAccess media
-├── components/          # Reusable interface and case-study components
+├── components/          # Reusable portfolio and project components
 ├── data/                # Profile, background, skills, and project facts
 ├── pages/               # Page-level composition
 ├── styles/              # Tokens, reset, and responsive global styles
@@ -60,7 +60,7 @@ src/
 - Edit personal and contact details in `src/data/profile.js`.
 - Edit education, experience, and certifications in `src/data/background.js`.
 - Edit skill groups in `src/data/skills.js`.
-- Edit verified FinAccess evidence in `src/data/finaccess.js`.
+- Edit project summaries and verified evidence in `src/data/projects.js`.
 
 ## Adding future projects
 
