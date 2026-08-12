@@ -64,6 +64,19 @@ try {
     'The verified email address must render as a contact link.',
   )
   assert.ok(!html.includes('LinkedIn'), 'The unverified LinkedIn placeholder must remain hidden.')
+  assert.ok(html.includes('Junior Data Scientist'), 'The current professional title must render.')
+  assert.ok(
+    !html.includes('Final-year BSc Information Technology student'),
+    'The outdated student introduction must not render.',
+  )
+  assert.ok(
+    !html.includes('href="https://github.com/thandofana"'),
+    'Standalone GitHub links must not render in the hero or footer.',
+  )
+  assert.ok(html.includes('href="tel:+26879711996"'), 'The first phone number must render.')
+  assert.ok(html.includes('href="tel:+26878700044"'), 'The second phone number must render.')
+  assert.ok(!html.includes('End-to-end workflow'), 'The previous hero graphic must not render.')
+  assert.ok(!html.includes('Core workflow capabilities'), 'The old capability strip must not render.')
   assert.ok(html.includes('Datamatics Eswatini'), 'Verified internship experience must render.')
   assert.ok(html.includes('University of Eswatini'), 'Verified education must render.')
   assert.ok(
@@ -79,6 +92,10 @@ try {
     'The Excel Data Analysis certificate PDF must be linked.',
   )
   assert.ok(html.includes('Projects, briefly.'), 'The concise projects section must render.')
+  assert.ok(
+    !html.includes('A portfolio proof of concept'),
+    'The completed project summary must not use portfolio framing.',
+  )
   assert.ok(html.includes('GitHub README'), 'The completed project must link to its README.')
   assert.ok(
     html.includes('https://github.com/thandofana/finaccess-eswatini/blob/main/README.md'),

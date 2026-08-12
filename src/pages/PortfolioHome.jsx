@@ -22,36 +22,40 @@ function PortfolioHome() {
                 <p className="eyebrow">{profile.location} · Data &amp; technology</p>
                 <h1 id="hero-title">{profile.name}</h1>
                 <p className="hero__role">{profile.professionalTitle}</p>
-                <p className="lead">{profile.intro}</p>
                 <div className="button-row">
                   <Button href="#projects">View work</Button>
-                  <Button href={profile.github} variant="secondary">GitHub</Button>
                   {profile.cv && <Button href={profile.cv} variant="secondary">Download CV</Button>}
                 </div>
               </div>
 
               <div
-                className="data-visual"
+                className="insight-visual"
                 role="img"
-                aria-label="Data workflow from evidence through modelling to a deployed product"
+                aria-label="Abstract analytical graphic representing patterns becoming clear insight"
               >
-                <div className="data-visual__header">
-                  <span>End-to-end workflow</span>
-                  <span className="status"><i /> Deployed</span>
+                <div className="insight-visual__header">
+                  <span>Data intelligence</span>
+                  <span className="insight-visual__signal"><i /> Signal active</span>
                 </div>
-                <div className="data-visual__plot" aria-hidden="true">
-                  <div className="plot-line plot-line--one" />
-                  <div className="plot-line plot-line--two" />
-                  <div className="plot-line plot-line--three" />
-                  <div className="plot-point plot-point--one" />
-                  <div className="plot-point plot-point--two" />
-                  <div className="plot-point plot-point--three" />
-                  <div className="plot-point plot-point--four" />
+                <div className="insight-visual__canvas" aria-hidden="true">
+                  <div className="insight-visual__orbit insight-visual__orbit--outer" />
+                  <div className="insight-visual__orbit insight-visual__orbit--inner" />
+                  <span className="insight-visual__dot insight-visual__dot--one" />
+                  <span className="insight-visual__dot insight-visual__dot--two" />
+                  <span className="insight-visual__dot insight-visual__dot--three" />
+                  <span className="insight-visual__dot insight-visual__dot--four" />
+                  <div className="insight-visual__bars">
+                    <i /><i /><i /><i /><i /><i />
+                  </div>
+                  <div className="insight-visual__core">
+                    <span>Clear</span>
+                    <strong>Insight</strong>
+                  </div>
                 </div>
-                <div className="data-visual__footer">
-                  <span><strong>01</strong> Evidence</span>
-                  <span><strong>02</strong> Models</span>
-                  <span><strong>03</strong> Product</span>
+                <div className="insight-visual__footer">
+                  <span>Patterns</span><i />
+                  <span>Context</span><i />
+                  <span>Clarity</span>
                 </div>
               </div>
             </div>
@@ -68,32 +72,20 @@ function PortfolioHome() {
             <div className="about-grid">
               <div>
                 <p className="eyebrow">About</p>
-                <h2 id="about-title">Practical analysis, built for real use.</h2>
+                <h2 id="about-title">Turning data into clarity.</h2>
               </div>
               <div className="about-copy">
                 <p>
-                  I am a final-year Bachelor of Science in Information Technology student at the
-                  University of Eswatini, focused on practical data work. I work across data cleaning,
-                  exploratory and statistical analysis, machine learning, and explainable AI to
-                  uncover patterns that can support better decisions.
+                  I am a junior data scientist based in Eswatini, focused on transforming complex
+                  datasets into clear, decision-ready insights. My work combines data cleaning,
+                  exploratory and statistical analysis, machine learning, and explainable AI with
+                  an emphasis on dependable methods and clear communication.
                 </p>
                 <p>
-                  My interests extend beyond notebooks to dashboards, APIs, analytical applications,
-                  testing, and deployment—turning an analysis into something people can inspect and use.
+                  I also develop dashboards, APIs, and analytical applications that make results
+                  accessible, transparent, and useful to the people making decisions.
                 </p>
               </div>
-            </div>
-
-            <div className="capability-line" aria-label="Core workflow capabilities">
-              <span>Analyse</span>
-              <i aria-hidden="true" />
-              <span>Model</span>
-              <i aria-hidden="true" />
-              <span>Explain</span>
-              <i aria-hidden="true" />
-              <span>Build</span>
-              <i aria-hidden="true" />
-              <span>Deploy</span>
             </div>
           </Container>
         </section>
@@ -136,23 +128,17 @@ function PortfolioHome() {
         >
           <Container>
             <div className="contact__inner">
-              <div>
-                <p className="eyebrow">Contact</p>
-                <h2 id="contact-title">Let&apos;s connect.</h2>
-              </div>
-              <div className="contact__copy">
-                <p>
-                  I am interested in opportunities and conversations around analytics,
-                  data science, and practical technology.
-                </p>
-                <div className="contact__actions">
-                  {profile.email && <Button href={`mailto:${profile.email}`}>Email me</Button>}
-                  <Button href={profile.github} variant={profile.email ? 'secondary' : 'primary'}>
-                    View GitHub
-                  </Button>
-                  {profile.linkedin && <Button href={profile.linkedin} variant="secondary">LinkedIn</Button>}
-                </div>
-              </div>
+              <h2 id="contact-title">Contact</h2>
+              <address className="contact__details">
+                <a href={`mailto:${profile.email}`}>{profile.email}</a>
+                <span aria-hidden="true">/</span>
+                {profile.phones.map((phone, index) => (
+                  <span className="contact__phone" key={phone.href}>
+                    <a href={phone.href}>{phone.display}</a>
+                    {index < profile.phones.length - 1 && <span aria-hidden="true">/</span>}
+                  </span>
+                ))}
+              </address>
             </div>
           </Container>
         </section>

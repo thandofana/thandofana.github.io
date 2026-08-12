@@ -1,10 +1,12 @@
 const profile = {
   name: 'Thando F. Dlamini',
-  professionalTitle: 'Data Analyst & Data Scientist',
-  intro:
-    'Final-year BSc Information Technology student using data, statistical analysis, and machine learning to turn real-world problems into practical insights and decision-support tools.',
+  professionalTitle: 'Junior Data Scientist',
   location: 'Eswatini',
   email: 'dlaminithandofana@gmail.com',
+  phones: [
+    { display: '+268 7971 1996', href: 'tel:+26879711996' },
+    { display: '+268 7870 0044', href: 'tel:+26878700044' },
+  ],
   github: 'https://github.com/thandofana',
   linkedin: null, // Placeholder: add a verified LinkedIn URL before displaying it.
   cv: null, // Placeholder: add a local CV path or verified URL before displaying it.

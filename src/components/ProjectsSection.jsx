@@ -47,12 +47,12 @@ function ProjectsSection({ projects }) {
                   <p className="project-summary__description">{project.description}</p>
                   {(project.liveUrl || project.readmeUrl) && (
                     <div className="button-row project-summary__actions">
-                      {project.liveUrl && <Button href={project.liveUrl}>Live project</Button>}
                       {project.readmeUrl && (
                         <Button href={project.readmeUrl} variant="secondary">
                           GitHub README
                         </Button>
                       )}
+                      {project.liveUrl && <Button href={project.liveUrl}>Live project</Button>}
                     </div>
                   )}
                 </div>

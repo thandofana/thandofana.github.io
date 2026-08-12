@@ -11,7 +11,7 @@ const projects = [
     shortDescription:
       'Explainable machine learning for financial inclusion and mobile-money adoption.',
     description:
-      'A portfolio proof of concept that analyses financial access in Eswatini and serves two explainable machine-learning models through a web application.',
+      'A data science application that analyses financial access in Eswatini and serves two explainable machine-learning models through a responsive web experience.',
     image: finAccessDashboard,
     imageAlt:
       'FinAccess overview dashboard showing financial-inclusion and mobile-money estimates, respondent total, and two validated models',
