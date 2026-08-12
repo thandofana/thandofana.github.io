@@ -84,6 +84,8 @@ try {
     'The phone numbers must have a visible label.',
   )
   assert.ok(!html.includes('End-to-end workflow'), 'The previous hero graphic must not render.')
+  assert.ok(html.includes('Analytical focus'), 'The refined editorial hero graphic must render.')
+  assert.ok(!html.includes('insight-visual__orbit'), 'The previous orbital graphic must not render.')
   assert.ok(!html.includes('Core workflow capabilities'), 'The old capability strip must not render.')
   assert.ok(html.includes('Datamatics Eswatini'), 'Verified internship experience must render.')
   assert.ok(html.includes('University of Eswatini'), 'Verified education must render.')

@@ -38,18 +38,22 @@ function PortfolioHome() {
                   <span className="insight-visual__signal"><i /> Signal active</span>
                 </div>
                 <div className="insight-visual__canvas" aria-hidden="true">
-                  <div className="insight-visual__orbit insight-visual__orbit--outer" />
-                  <div className="insight-visual__orbit insight-visual__orbit--inner" />
-                  <span className="insight-visual__dot insight-visual__dot--one" />
-                  <span className="insight-visual__dot insight-visual__dot--two" />
-                  <span className="insight-visual__dot insight-visual__dot--three" />
-                  <span className="insight-visual__dot insight-visual__dot--four" />
-                  <div className="insight-visual__bars">
-                    <i /><i /><i /><i /><i /><i />
+                  <div className="insight-visual__matrix">
+                    {Array.from({ length: 48 }, (_, index) => (
+                      <i
+                        className={
+                          [5, 12, 13, 20, 21, 22, 29, 30, 37, 45].includes(index)
+                            ? 'is-active'
+                            : undefined
+                        }
+                        key={index}
+                      />
+                    ))}
                   </div>
-                  <div className="insight-visual__core">
-                    <span>Clear</span>
-                    <strong>Insight</strong>
+                  <div className="insight-visual__reading">
+                    <span>Analytical focus</span>
+                    <strong>Clear<br />insight.</strong>
+                    <small>Patterns interpreted in context.</small>
                   </div>
                 </div>
                 <div className="insight-visual__footer">
