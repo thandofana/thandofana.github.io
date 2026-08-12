@@ -1,0 +1,92 @@
+import assert from 'node:assert/strict'
+import React from 'react'
+import { renderToStaticMarkup } from 'react-dom/server'
+import { createServer } from 'vite'
+
+const server = await createServer({
+  appType: 'custom',
+  logLevel: 'silent',
+  server: { middlewareMode: true },
+})
+
+try {
+  const { default: App } = await server.ssrLoadModule('/src/App.jsx')
+  const html = renderToStaticMarkup(React.createElement(App))
+  const anchorTargets = [...html.matchAll(/href="#([^"]+)"/g)].map((match) => match[1])
+  const ids = new Set([...html.matchAll(/id="([^"]+)"/g)].map((match) => match[1]))
+  const missingAnchorTargets = [...new Set(anchorTargets.filter((target) => !ids.has(target)))]
+  const images = [...html.matchAll(/<img\b[^>]*>/g)].map((match) => match[0])
+  const newTabLinks = [...html.matchAll(/<a\b[^>]*target="_blank"[^>]*>/g)].map(
+    (match) => match[0],
+  )
+
+  const landmarks = {
+    header: (html.match(/<header\b/g) || []).length,
+    main: (html.match(/<main\b/g) || []).length,
+    nav: (html.match(/<nav\b/g) || []).length,
+    footer: (html.match(/<footer\b/g) || []).length,
+  }
+  const headings = {
+    h1: (html.match(/<h1\b/g) || []).length,
+    h2: (html.match(/<h2\b/g) || []).length,
+    h3: (html.match(/<h3\b/g) || []).length,
+    h4: (html.match(/<h4\b/g) || []).length,
+  }
+
+  assert.equal(landmarks.main, 1, 'The page must contain exactly one main landmark.')
+  assert.equal(landmarks.footer, 1, 'The page must contain exactly one footer landmark.')
+  assert.ok(landmarks.header >= 1, 'The page must contain a header landmark.')
+  assert.ok(landmarks.nav >= 1, 'The page must contain a navigation landmark.')
+  assert.equal(headings.h1, 1, 'The page must contain exactly one h1.')
+  assert.deepEqual(missingAnchorTargets, [], 'Every same-page link must resolve to an element ID.')
+  assert.equal(images.length, 5, 'All five approved FinAccess images must render.')
+  assert.ok(
+    images.every((image) => /\balt="[^"]+"/.test(image)),
+    'Every rendered image must have descriptive alternative text.',
+  )
+  assert.ok(
+    images.every((image) => /\bwidth="\d+"/.test(image) && /\bheight="\d+"/.test(image)),
+    'Every rendered image must reserve its layout dimensions.',
+  )
+  assert.ok(
+    images.every(
+      (image) => /\bloading="lazy"/.test(image) && /\bdecoding="async"/.test(image),
+    ),
+    'Every rendered project image must use the approved loading strategy.',
+  )
+  assert.ok(
+    newTabLinks.every((link) => /\brel="noreferrer"/.test(link)),
+    'Every new-tab link must use the approved relationship attribute.',
+  )
+  assert.ok(!html.includes('Download CV'), 'The unverified CV placeholder must remain hidden.')
+  assert.ok(
+    html.includes('href="mailto:dlaminithandofana@gmail.com"'),
+    'The verified email address must render as a contact link.',
+  )
+  assert.ok(!html.includes('LinkedIn'), 'The unverified LinkedIn placeholder must remain hidden.')
+  assert.ok(html.includes('Datamatics Eswatini'), 'Verified internship experience must render.')
+  assert.ok(html.includes('University of Eswatini'), 'Verified education must render.')
+  assert.ok(
+    html.includes('Google Data Analytics Professional Certificate'),
+    'Verified professional learning must render.',
+  )
+
+  console.log(
+    JSON.stringify(
+      {
+        renderedCharacters: html.length,
+        landmarks,
+        headings,
+        internalLinks: anchorTargets.length,
+        missingAnchorTargets,
+        images: images.length,
+        newTabLinks: newTabLinks.length,
+        verifiedResumeDetailsPresent: true,
+      },
+      null,
+      2,
+    ),
+  )
+} finally {
+  await server.close()
+}

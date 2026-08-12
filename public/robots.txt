@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://thandofana.github.io/sitemap.xml
