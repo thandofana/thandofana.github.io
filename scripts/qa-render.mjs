@@ -59,16 +59,16 @@ try {
     newTabLinks.every((link) => /\brel="noreferrer"/.test(link)),
     'Every new-tab link must use the approved relationship attribute.',
   )
-  assert.ok(html.includes('Download CV'), 'The verified CV download must render.')
+  assert.ok(html.includes('Download Resume'), 'The verified resume download must render.')
   assert.ok(
-    html.includes('href="/resume/Thando_Fana_Dlamini_CV.pdf"'),
-    'The CV download must link to the verified local PDF.',
+    html.includes('href="/resume/Thando_Fana_Dlamini_Resume.pdf"'),
+    'The resume download must link to the verified local PDF.',
   )
   assert.ok(
-    html.includes('download="Thando_Fana_Dlamini_CV.pdf"'),
-    'The CV link must download with a clear filename.',
+    html.includes('download="Thando_Fana_Dlamini_Resume.pdf"'),
+    'The resume link must download with a clear filename.',
   )
-  await access('public/resume/Thando_Fana_Dlamini_CV.pdf')
+  await access('public/resume/Thando_Fana_Dlamini_Resume.pdf')
   assert.ok(
     html.includes('href="mailto:dlaminithandofana@gmail.com"'),
     'The verified email address must render as a contact link.',
