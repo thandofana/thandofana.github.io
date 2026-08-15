@@ -24,7 +24,15 @@ function PortfolioHome() {
                 <p className="hero__role">{profile.professionalTitle}</p>
                 <div className="button-row">
                   <Button href="#projects">View work</Button>
-                  {profile.cv && <Button href={profile.cv} variant="secondary">Download CV</Button>}
+                  {profile.cv && (
+                    <Button
+                      href={profile.cv}
+                      variant="secondary"
+                      download="Thando_Fana_Dlamini_CV.pdf"
+                    >
+                      Download CV
+                    </Button>
+                  )}
                 </div>
               </div>
 

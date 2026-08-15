@@ -1,4 +1,4 @@
-function Button({ href, variant = 'primary', children }) {
+function Button({ href, variant = 'primary', download, children }) {
   const className = `button button--${variant}`
 
   if (href) {
@@ -8,6 +8,7 @@ function Button({ href, variant = 'primary', children }) {
       <a
         className={className}
         href={href}
+        download={download}
         target={isExternal ? '_blank' : undefined}
         rel={isExternal ? 'noreferrer' : undefined}
       >

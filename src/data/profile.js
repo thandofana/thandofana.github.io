@@ -9,7 +9,7 @@ const profile = {
   ],
   github: 'https://github.com/thandofana',
   linkedin: null, // Placeholder: add a verified LinkedIn URL before displaying it.
-  cv: null, // Placeholder: add a local CV path or verified URL before displaying it.
+  cv: '/resume/Thando_Fana_Dlamini_CV.pdf',
 }
 
 export default profile
