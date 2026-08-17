@@ -147,42 +147,50 @@ function PortfolioHome() {
         >
           <Container>
             <div className="contact__inner">
-              <div>
-                <p className="eyebrow">Contact</p>
-                <h2 id="contact-title">Start a conversation.</h2>
-                <p className="contact__message">
-                  Open to data-analysis opportunities, analytical collaborations and conversations
-                  about evidence-driven work.
-                </p>
-              </div>
+              <h2 className="contact__title" id="contact-title">
+                Contact
+              </h2>
               <address className="contact__details">
-                <div className="contact__item">
-                  <strong className="contact__label">Email:</strong>
-                  <a href={`mailto:${profile.email}`}>{profile.email}</a>
-                </div>
-                <div className="contact__item">
-                  <strong className="contact__label">GitHub:</strong>
+                <a className="contact-card" href={`mailto:${profile.email}`}>
+                  <span className="contact-card__copy">
+                    <span className="contact-card__label">Email</span>
+                    <span className="contact-card__value">{profile.email}</span>
+                  </span>
+                  <span className="contact-card__arrow" aria-hidden="true">
+                    ↗
+                  </span>
+                </a>
+                <a
+                  className="contact-card"
+                  href={profile.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="View Thando F. Dlamini on GitHub in a new tab"
+                >
+                  <span className="contact-card__copy">
+                    <span className="contact-card__label">GitHub</span>
+                    <span className="contact-card__value">github.com/thandofana</span>
+                  </span>
+                  <span className="contact-card__arrow" aria-hidden="true">
+                    ↗
+                  </span>
+                </a>
+                {profile.linkedin && (
                   <a
-                    href={profile.github}
+                    className="contact-card"
+                    href={profile.linkedin}
                     target="_blank"
                     rel="noreferrer"
-                    aria-label="View Thando F. Dlamini on GitHub in a new tab"
+                    aria-label="View Thando F. Dlamini on LinkedIn in a new tab"
                   >
-                    github.com/thandofana <span aria-hidden="true">↗</span>
+                    <span className="contact-card__copy">
+                      <span className="contact-card__label">LinkedIn</span>
+                      <span className="contact-card__value">LinkedIn profile</span>
+                    </span>
+                    <span className="contact-card__arrow" aria-hidden="true">
+                      ↗
+                    </span>
                   </a>
-                </div>
-                {profile.linkedin && (
-                  <div className="contact__item">
-                    <strong className="contact__label">LinkedIn:</strong>
-                    <a
-                      href={profile.linkedin}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label="View Thando F. Dlamini on LinkedIn in a new tab"
-                    >
-                      LinkedIn profile <span aria-hidden="true">↗</span>
-                    </a>
-                  </div>
                 )}
               </address>
             </div>

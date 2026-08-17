@@ -152,6 +152,11 @@ try {
     html.includes('href="https://github.com/thandofana"'),
     'The verified GitHub profile must render as a contact link.',
   )
+  assert.ok(!html.includes('Start a conversation.'), 'The old contact headline must not render.')
+  assert.ok(
+    !html.includes('Open to data-analysis opportunities'),
+    'The old contact description must not render.',
+  )
   assert.ok(!html.includes('href="tel:'), 'Phone numbers must not render on the public homepage.')
   assert.ok(!html.includes('LinkedIn'), 'LinkedIn must remain hidden until its URL is provided.')
 
