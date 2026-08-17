@@ -845,23 +845,75 @@ p {
   text-transform: uppercase;
 }
 
-.project-case-study__image {
-  display: block;
-  overflow: hidden;
+.project-case-study__preview {
+  display: grid;
+  padding: clamp(1.5rem, 4vw, 3.5rem);
   border-block: 1px solid var(--color-border);
   background: var(--color-surface-muted);
+  place-items: center;
+}
+
+.project-case-study__image {
+  position: relative;
+  display: block;
+  width: min(68%, 44rem);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-background);
+  box-shadow: var(--shadow-subtle);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
 }
 
 .project-case-study__image img {
+  display: block;
   width: 100%;
   height: auto;
   aspect-ratio: 48 / 35;
   object-fit: contain;
-  transition: transform 240ms ease;
+  transition: transform 240ms ease, filter 180ms ease;
 }
 
-.project-case-study__image:hover img {
-  transform: scale(1.008);
+.project-case-study__image-action {
+  position: absolute;
+  right: var(--space-4);
+  bottom: var(--space-4);
+  display: inline-flex;
+  min-height: 2.5rem;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 0.6rem 0.85rem;
+  border-radius: 999px;
+  color: var(--color-background);
+  background: var(--color-accent-strong);
+  box-shadow: var(--shadow-subtle);
+  font-size: var(--text-xs);
+  font-weight: 750;
+  opacity: 0;
+  transform: translateY(0.4rem);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.project-case-study__image:hover,
+.project-case-study__image:focus-visible {
+  border-color: var(--color-accent);
+  box-shadow: 0 20px 45px rgb(22 38 33 / 14%);
+  transform: translateY(-0.2rem);
+}
+
+.project-case-study__image:hover img,
+.project-case-study__image:focus-visible img {
+  filter: brightness(0.94);
+  transform: scale(1.012);
+}
+
+.project-case-study__image:hover .project-case-study__image-action,
+.project-case-study__image:focus-visible .project-case-study__image-action {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .project-case-study__findings {
@@ -2001,6 +2053,15 @@ p {
 }
 
 @media (max-width: 48rem) {
+  .project-case-study__image {
+    width: min(100%, 38rem);
+  }
+
+  .project-case-study__image-action {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
   .menu-toggle {
     display: inline-flex;
     align-items: center;

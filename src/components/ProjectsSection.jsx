@@ -52,22 +52,27 @@ function ProjectsSection({ projects }) {
                 </section>
               </div>
 
-              <a
-                className="project-case-study__image"
-                href={project.liveUrl}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={`Open the live ${project.title} application in a new tab`}
-              >
-                <img
-                  src={project.image}
-                  width={project.imageWidth}
-                  height={project.imageHeight}
-                  loading="lazy"
-                  decoding="async"
-                  alt={project.imageAlt}
-                />
-              </a>
+              <div className="project-case-study__preview">
+                <a
+                  className="project-case-study__image"
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Open the live ${project.title} application in a new tab`}
+                >
+                  <img
+                    src={project.image}
+                    width={project.imageWidth}
+                    height={project.imageHeight}
+                    loading="lazy"
+                    decoding="async"
+                    alt={project.imageAlt}
+                  />
+                  <span className="project-case-study__image-action" aria-hidden="true">
+                    Open live preview <span>↗</span>
+                  </span>
+                </a>
+              </div>
 
               <section
                 className="project-case-study__findings"
