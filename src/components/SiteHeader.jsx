@@ -3,10 +3,10 @@ import profile from '../data/profile.js'
 import Container from './Container.jsx'
 
 const navigation = [
-  { label: 'About', href: '#about' },
-  { label: 'Background', href: '#background' },
   { label: 'Work', href: '#projects' },
+  { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
+  { label: 'Background', href: '#background' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -76,13 +76,6 @@ function SiteHeader() {
               {item.label}
             </a>
           ))}
-          <a
-            className="site-nav__contact"
-            href="#projects"
-            onClick={closeMenu}
-          >
-            View work <span aria-hidden="true">→</span>
-          </a>
         </nav>
       </Container>
     </header>

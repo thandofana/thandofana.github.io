@@ -19,18 +19,23 @@ function PortfolioHome() {
           <Container>
             <div className="hero__grid">
               <div className="hero__copy">
-                <p className="eyebrow">{profile.location} · Data &amp; technology</p>
-                <h1 id="hero-title">{profile.name}</h1>
-                <p className="hero__role">{profile.professionalTitle}</p>
+                <p className="eyebrow">{profile.professionalTitle}</p>
+                <p className="hero__identity">{profile.name} · {profile.location}</p>
+                <h1 id="hero-title">Turning complex data into decision-ready insight.</h1>
+                <p className="hero__summary">
+                  I use statistical analysis, Python and explainable machine learning to investigate
+                  financial and socioeconomic questions, uncover meaningful patterns and communicate
+                  what the evidence means.
+                </p>
                 <div className="button-row">
-                  <Button href="#projects">View work</Button>
+                  <Button href="#projects">View featured work</Button>
                   {profile.resume && (
                     <Button
                       href={profile.resume}
                       variant="secondary"
                       download="Thando_Fana_Dlamini_Resume.pdf"
                     >
-                      Download Resume
+                      Download résumé
                     </Button>
                   )}
                 </div>
@@ -74,6 +79,8 @@ function PortfolioHome() {
           </Container>
         </section>
 
+        <ProjectsSection projects={projects} />
+
         <section
           className="section section--surface"
           id="about"
@@ -84,37 +91,34 @@ function PortfolioHome() {
             <div className="about-grid">
               <div>
                 <p className="eyebrow">About</p>
-                <h2 id="about-title">Turning data into clarity.</h2>
+                <h2 id="about-title">Clear analysis, responsibly communicated.</h2>
               </div>
               <div className="about-copy">
                 <p>
-                  A junior data scientist, focused on transforming complex datasets into clear,
-                  decision-ready insights. My work combines data cleaning, exploratory and
-                  statistical analysis and machine learning, with an emphasis on dependable methods
-                  and clear communication.
+                  I am a data analyst focused on transforming complex datasets into clear,
+                  defensible and decision-ready insight. My work combines data cleaning,
+                  exploratory analysis, statistical reasoning and applied machine learning, with
+                  particular attention to transparent methods and responsible interpretation.
                 </p>
                 <p>
-                  I also develop dashboards, APIs, and analytical applications that make results
-                  accessible, transparent, and useful to the people making decisions.
+                  I also build APIs, dashboards and analytical applications that make results easier
+                  to explore and communicate.
                 </p>
               </div>
             </div>
           </Container>
         </section>
 
-        <BackgroundSection />
-
-        <ProjectsSection projects={projects} />
-
         <section className="section" id="skills" aria-labelledby="skills-title" tabIndex="-1">
           <Container>
             <div className="section-heading">
               <div>
                 <p className="eyebrow">Skills</p>
-                <h2 id="skills-title">A focused technical toolkit.</h2>
+                <h2 id="skills-title">Capabilities, with evidence in context.</h2>
               </div>
               <p>
-                Tools and methods demonstrated through analytical and application development work.
+                A clear distinction between capabilities demonstrated in completed work and tools
+                developed through professional training and ongoing practice.
               </p>
             </div>
 
@@ -123,6 +127,7 @@ function PortfolioHome() {
                 <article className="skill-group" key={group.category}>
                   <span className="skill-group__number">{String(index + 1).padStart(2, '0')}</span>
                   <h3>{group.category}</h3>
+                  <p>{group.description}</p>
                   <ul>
                     {group.skills.map((skill) => <li key={skill}>{skill}</li>)}
                   </ul>
@@ -132,6 +137,8 @@ function PortfolioHome() {
           </Container>
         </section>
 
+        <BackgroundSection />
+
         <section
           className="section contact"
           id="contact"
@@ -140,23 +147,43 @@ function PortfolioHome() {
         >
           <Container>
             <div className="contact__inner">
-              <h2 id="contact-title">Contact details</h2>
+              <div>
+                <p className="eyebrow">Contact</p>
+                <h2 id="contact-title">Start a conversation.</h2>
+                <p className="contact__message">
+                  Open to data-analysis opportunities, analytical collaborations and conversations
+                  about evidence-driven work.
+                </p>
+              </div>
               <address className="contact__details">
                 <div className="contact__item">
                   <strong className="contact__label">Email:</strong>
                   <a href={`mailto:${profile.email}`}>{profile.email}</a>
                 </div>
                 <div className="contact__item">
-                  <strong className="contact__label">Phone:</strong>
-                  <span className="contact__phones">
-                    {profile.phones.map((phone, index) => (
-                      <span className="contact__phone" key={phone.href}>
-                        <a href={phone.href}>{phone.display}</a>
-                        {index < profile.phones.length - 1 && <span aria-hidden="true">/</span>}
-                      </span>
-                    ))}
-                  </span>
+                  <strong className="contact__label">GitHub:</strong>
+                  <a
+                    href={profile.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="View Thando F. Dlamini on GitHub in a new tab"
+                  >
+                    github.com/thandofana <span aria-hidden="true">↗</span>
+                  </a>
                 </div>
+                {profile.linkedin && (
+                  <div className="contact__item">
+                    <strong className="contact__label">LinkedIn:</strong>
+                    <a
+                      href={profile.linkedin}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label="View Thando F. Dlamini on LinkedIn in a new tab"
+                    >
+                      LinkedIn profile <span aria-hidden="true">↗</span>
+                    </a>
+                  </div>
+                )}
               </address>
             </div>
           </Container>

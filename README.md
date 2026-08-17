@@ -1,6 +1,6 @@
 # Thando F. Dlamini — Data Portfolio
 
-A responsive data-analysis and data-science portfolio built with React and Vite. It presents verified professional background, technical capabilities, and concise project summaries focused on problem, evidence, solution, and result.
+A responsive data-analyst portfolio built with React and Vite. It presents verified professional background, demonstrated technical capabilities, and a recruiter-friendly featured case study focused on question, evidence, delivery, and responsible interpretation.
 
 ## Live site
 
@@ -64,4 +64,4 @@ src/
 
 ## Adding future projects
 
-Add a verified project object to `src/data/projects.js`. The data model supports a title, slug, category, descriptions, technologies, image, direct README URL, live URL, and featured status. Do not add placeholder or unverified projects.
+Add a verified project object to `src/data/projects.js` only after it is complete and demonstrable. Do not add placeholder or unverified projects.
