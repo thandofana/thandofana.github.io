@@ -1,6 +1,6 @@
 const profile = {
   name: 'Thando F. Dlamini',
-  professionalTitle: 'Junior Data Scientist',
+  professionalTitle: 'DATA ANALYST | APPLIED MACHINE LEARNING',
   location: 'Eswatini',
   email: 'dlaminithandofana@gmail.com',
   phones: [

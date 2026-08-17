@@ -74,7 +74,10 @@ try {
     'The verified email address must render as a contact link.',
   )
   assert.ok(!html.includes('LinkedIn'), 'The unverified LinkedIn placeholder must remain hidden.')
-  assert.ok(html.includes('Junior Data Scientist'), 'The current professional title must render.')
+  assert.ok(
+    html.includes('DATA ANALYST | APPLIED MACHINE LEARNING'),
+    'The current professional title must render.',
+  )
   assert.ok(
     html.includes('A junior data scientist, focused on transforming complex datasets'),
     'The approved About introduction must render.',
