@@ -13,11 +13,10 @@ function BackgroundSection() {
         <div className="section-heading">
           <div>
             <p className="eyebrow">Background</p>
-            <h2 id="background-title">Credentials that support the work.</h2>
+            <h2 id="background-title">Education and experience, put to work.</h2>
           </div>
           <p>
-            Academic study, practical software experience, and professional training applied
-            through end-to-end data projects.
+            Academic study, practical experience, and professional training shaping my data work.
           </p>
         </div>
 

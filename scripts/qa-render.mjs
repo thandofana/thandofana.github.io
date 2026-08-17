@@ -88,8 +88,20 @@ try {
     'The approved hero heading must render.',
   )
   assert.ok(
-    html.includes('I am a data analyst focused on transforming complex datasets'),
+    html.includes('business, financial and socioeconomic questions'),
+    'The approved hero summary must render.',
+  )
+  assert.ok(
+    html.includes('I’m a data analyst focused on turning complex datasets into clear, actionable'),
     'The approved About introduction must render.',
+  )
+  assert.ok(
+    html.includes('Technical skills, applied in practice.'),
+    'The approved Skills heading must render.',
+  )
+  assert.ok(
+    html.includes('Education and experience, put to work.'),
+    'The approved Background heading must render.',
   )
   assert.ok(!html.toLowerCase().includes('junior data scientist'), 'The outdated title must not render.')
 

@@ -24,8 +24,8 @@ function PortfolioHome() {
                 <h1 id="hero-title">Turning complex data into decision-ready insight.</h1>
                 <p className="hero__summary">
                   I use statistical analysis, Python and explainable machine learning to investigate
-                  financial and socioeconomic questions, uncover meaningful patterns and communicate
-                  what the evidence means.
+                  business, financial and socioeconomic questions, uncover meaningful patterns and
+                  communicate what the evidence means.
                 </p>
                 <div className="button-row">
                   <Button href="#projects">View featured work</Button>
@@ -95,14 +95,14 @@ function PortfolioHome() {
               </div>
               <div className="about-copy">
                 <p>
-                  I am a data analyst focused on transforming complex datasets into clear,
-                  defensible and decision-ready insight. My work combines data cleaning,
-                  exploratory analysis, statistical reasoning and applied machine learning, with
-                  particular attention to transparent methods and responsible interpretation.
+                  I’m a data analyst focused on turning complex datasets into clear, actionable
+                  insights. My work combines data cleaning, exploratory analysis, statistical
+                  reasoning and applied machine learning, with an emphasis on transparent methods
+                  and meaningful interpretation.
                 </p>
                 <p>
-                  I also build APIs, dashboards and analytical applications that make results easier
-                  to explore and communicate.
+                  I also build APIs, dashboards and analytical applications that make data easier to
+                  explore, understand and communicate.
                 </p>
               </div>
             </div>
@@ -114,11 +114,11 @@ function PortfolioHome() {
             <div className="section-heading">
               <div>
                 <p className="eyebrow">Skills</p>
-                <h2 id="skills-title">Capabilities, with evidence in context.</h2>
+                <h2 id="skills-title">Technical skills, applied in practice.</h2>
               </div>
               <p>
-                A clear distinction between capabilities demonstrated in completed work and tools
-                developed through professional training and ongoing practice.
+                Skills demonstrated through project work and developed through training and continued
+                practice.
               </p>
             </div>
 
