@@ -8,7 +8,7 @@ export const experience = {
   organisation: 'Datamatics Eswatini',
   role: 'Software Developer Intern',
   description:
-    'Supported software development and related technical implementation activities during an internship placement.',
+    'Supported data validation, digital-system testing and technical implementation across client projects, including field data activities, system demonstrations and stakeholder-facing assignments. Contributed to reviewing captured information for completeness and consistency and supported data used in project reporting and dashboards.',
 }
 
 export const certifications = [
