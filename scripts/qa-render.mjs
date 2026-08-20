@@ -161,8 +161,8 @@ try {
     'The verified email address must render as a contact link.',
   )
   assert.ok(
-    html.includes('href="https://github.com/thandofana"'),
-    'The verified GitHub profile must render as a contact link.',
+    !html.includes('href="https://github.com/thandofana"'),
+    'The personal GitHub profile must not render as a contact link.',
   )
   assert.ok(!html.includes('Start a conversation.'), 'The old contact headline must not render.')
   assert.ok(

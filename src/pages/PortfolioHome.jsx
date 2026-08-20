@@ -160,21 +160,6 @@ function PortfolioHome() {
                     ↗
                   </span>
                 </a>
-                <a
-                  className="contact-card"
-                  href={profile.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="View Thando F. Dlamini on GitHub in a new tab"
-                >
-                  <span className="contact-card__copy">
-                    <span className="contact-card__label">GitHub</span>
-                    <span className="contact-card__value">github.com/thandofana</span>
-                  </span>
-                  <span className="contact-card__arrow" aria-hidden="true">
-                    ↗
-                  </span>
-                </a>
                 {profile.linkedin && (
                   <a
                     className="contact-card"
