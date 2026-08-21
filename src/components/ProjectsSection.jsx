@@ -12,13 +12,12 @@ function ProjectsSection({ projects }) {
       <Container>
         <div className="section-heading">
           <div>
-            <p className="eyebrow">Selected work</p>
-            <h2 id="projects-title">Featured case study</h2>
+            <p className="eyebrow">01 · Selected work</p>
+            <h2 id="projects-title">Work that shows the full process.</h2>
           </div>
           <p>
-            An end-to-end analysis demonstrating how I move from raw data and statistical
-            investigation to validated models, clear findings and an accessible analytical
-            product.
+            From a real question and raw data to tested analysis, interpretable models and a
+            usable analytical product.
           </p>
         </div>
 
@@ -33,46 +32,49 @@ function ProjectsSection({ projects }) {
             >
               <header className="project-case-study__header">
                 <p className="project-case-study__meta">
-                  <span>{project.category}</span>
-                  <span className="project-case-study__status">{project.statusLabel}</span>
+                  <span>Featured project</span>
+                  <span>{project.category} · {project.year}</span>
                 </p>
-                <h3 id={`${project.slug}-title`}>{project.title}</h3>
-                <p className="project-case-study__subtitle">{project.subtitle}</p>
+                <div className="project-case-study__lead">
+                  <div className="project-case-study__copy">
+                    <h3 id={`${project.slug}-title`}>{project.title}</h3>
+                    <p className="project-case-study__subtitle">{project.subtitle}</p>
+                    <p className="project-case-study__summary">{project.summary}</p>
+                    <div className="button-row project-case-study__actions" aria-label="Project links">
+                      <Button href={project.liveUrl}>Live project</Button>
+                      <Button href={project.readmeUrl} variant="secondary">
+                        View case study / GitHub
+                      </Button>
+                    </div>
+                  </div>
+
+                  <a
+                    className="project-case-study__image"
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Open the live ${project.title} application in a new tab`}
+                  >
+                    <img
+                      src={project.image}
+                      width={project.imageWidth}
+                      height={project.imageHeight}
+                      loading="lazy"
+                      decoding="async"
+                      alt={project.imageAlt}
+                    />
+                    <span className="project-case-study__image-action" aria-hidden="true">
+                      Open live project <span>↗</span>
+                    </span>
+                  </a>
+                </div>
+
+                <dl className="project-case-study__facts">
+                  <div><dt>Focus</dt><dd>{project.focus}</dd></div>
+                  <div><dt>Data</dt><dd>{project.dataSource}</dd></div>
+                  <div><dt>Methods</dt><dd>{project.methods}</dd></div>
+                </dl>
               </header>
-
-              <div className="project-case-study__overview">
-                <section aria-labelledby={`${project.slug}-question`}>
-                  <p className="project-case-study__label">Business question</p>
-                  <h4 id={`${project.slug}-question`}>{project.businessQuestion}</h4>
-                </section>
-                <section aria-labelledby={`${project.slug}-summary`}>
-                  <p className="project-case-study__label">Project summary</p>
-                  <h4 className="sr-only" id={`${project.slug}-summary`}>Project summary</h4>
-                  <p>{project.summary}</p>
-                </section>
-              </div>
-
-              <div className="project-case-study__preview">
-                <a
-                  className="project-case-study__image"
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`Open the live ${project.title} application in a new tab`}
-                >
-                  <img
-                    src={project.image}
-                    width={project.imageWidth}
-                    height={project.imageHeight}
-                    loading="lazy"
-                    decoding="async"
-                    alt={project.imageAlt}
-                  />
-                  <span className="project-case-study__image-action" aria-hidden="true">
-                    Open live preview <span>↗</span>
-                  </span>
-                </a>
-              </div>
 
               <section
                 className="project-case-study__findings"
@@ -91,12 +93,17 @@ function ProjectsSection({ projects }) {
               </section>
 
               <section
-                className="project-case-study__relevance"
-                aria-labelledby={`${project.slug}-relevance`}
+                className="project-case-study__context"
+                aria-label={`${project.title} analytical context`}
               >
-                <p className="project-case-study__label">Decision relevance</p>
-                <h4 className="sr-only" id={`${project.slug}-relevance`}>Decision relevance</h4>
-                <p>{project.decisionRelevance}</p>
+                <div>
+                  <p className="project-case-study__label">Business question</p>
+                  <h4 id={`${project.slug}-question`}>{project.businessQuestion}</h4>
+                </div>
+                <div>
+                  <p className="project-case-study__label">Decision relevance</p>
+                  <p>{project.decisionRelevance}</p>
+                </div>
               </section>
 
               <section
@@ -131,12 +138,6 @@ function ProjectsSection({ projects }) {
                 <p className="project-case-study__note">
                   <strong>Responsible use:</strong> {project.responsibleUse}
                 </p>
-                <div className="button-row project-case-study__actions" aria-label="Project links">
-                  <Button href={project.liveUrl}>View live application</Button>
-                  <Button href={project.readmeUrl} variant="secondary">
-                    Read case study on GitHub
-                  </Button>
-                </div>
               </div>
             </article>
           ))}

@@ -1,20 +1,20 @@
-function Button({ href, variant = 'primary', download, children }) {
+function Button({ href, variant = 'primary', download, newTab = false, children }) {
   const className = `button button--${variant}`
 
   if (href) {
-    const isExternal = href.startsWith('http')
+    const opensNewTab = newTab || href.startsWith('http')
 
     return (
       <a
         className={className}
         href={href}
         download={download}
-        target={isExternal ? '_blank' : undefined}
-        rel={isExternal ? 'noreferrer' : undefined}
+        target={opensNewTab ? '_blank' : undefined}
+        rel={opensNewTab ? 'noreferrer' : undefined}
       >
         {children}
-        <span aria-hidden="true">{isExternal ? '↗' : '→'}</span>
-        {isExternal && <span className="sr-only"> (opens in a new tab)</span>}
+        <span aria-hidden="true">{opensNewTab ? '↗' : '→'}</span>
+        {opensNewTab && <span className="sr-only"> (opens in a new tab)</span>}
       </a>
     )
   }

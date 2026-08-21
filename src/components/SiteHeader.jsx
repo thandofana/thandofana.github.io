@@ -3,10 +3,11 @@ import profile from '../data/profile.js'
 import Container from './Container.jsx'
 
 const navigation = [
-  { label: 'Work', href: '#projects' },
+  { label: 'Home', href: '#top' },
+  { label: 'Projects', href: '#projects' },
   { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
-  { label: 'Background', href: '#background' },
+  { label: 'Experience', href: '#background' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -46,8 +47,11 @@ function SiteHeader() {
     <header className="site-header">
       <Container className="site-header__inner">
         <a className="brand" href="#top" aria-label={`${profile.name}, home`}>
-          <span className="brand__mark" aria-hidden="true">TD</span>
-          <span className="brand__name">{profile.name}</span>
+          <span className="brand__mark" aria-hidden="true">SZ</span>
+          <span className="brand__copy">
+            <strong>{profile.name}</strong>
+            <small>Data &amp; Analytics</small>
+          </span>
         </a>
 
         <button

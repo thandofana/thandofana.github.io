@@ -5,6 +5,7 @@ const projects = [
     title: 'FinAccess Eswatini',
     slug: 'finaccess-eswatini',
     category: 'Data science application',
+    year: '2025',
     status: 'complete',
     statusLabel: 'Completed',
     subtitle: 'Financial inclusion and mobile-money adoption in Eswatini',
@@ -12,6 +13,9 @@ const projects = [
       'How do financial access and mobile-money adoption vary across demographic, socioeconomic and digital-access groups in Eswatini?',
     summary:
       'I analysed 1,051 Eswatini respondents from the World Bank Global Findex using survey-weighted analysis, statistical testing and two independently validated machine-learning pipelines. I then delivered the evidence and model explanations through a responsive web application.',
+    focus: 'Financial inclusion & mobile-money adoption',
+    dataSource: 'World Bank Global Findex microdata',
+    methods: 'Survey-weighted analysis · Machine learning · SHAP',
     image: finAccessDashboard,
     imageAlt:
       'FinAccess Eswatini dashboard showing 43.1% financial-institution account ownership, 50.4% mobile-money account ownership and 1,051 respondents',

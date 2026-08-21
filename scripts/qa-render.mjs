@@ -68,7 +68,8 @@ try {
     'Every new-tab link must use the approved relationship attribute.',
   )
 
-  assert.ok(html.includes('Download résumé'), 'The verified résumé download must render.')
+  assert.ok(html.includes('View CV'), 'The primary CV action must render.')
+  assert.ok(html.includes('Download CV'), 'The downloadable CV action must render.')
   assert.ok(
     html.includes('href="/resume/Thando_Fana_Dlamini_Resume.pdf"'),
     'The résumé download must link to the verified local PDF.',
@@ -80,16 +81,16 @@ try {
   await access('public/resume/Thando_Fana_Dlamini_Resume.pdf')
 
   assert.ok(
-    html.includes('DATA ANALYST | APPLIED MACHINE LEARNING'),
+    html.includes('Data · Analytics · Applied Machine Learning'),
     'The unified professional title must render.',
   )
   assert.ok(
-    html.includes('Turning complex data into decision-ready insight.'),
+    html.includes('<h1 id="hero-title">Thando F. Dlamini</h1>'),
     'The approved hero heading must render.',
   )
   assert.ok(
-    html.includes('business, financial and socioeconomic questions'),
-    'The approved hero summary must render.',
+    html.includes('Data Analyst building practical analytics, reporting and machine-learning'),
+    'The approved professional positioning must render.',
   )
   assert.ok(
     html.includes('I’m a data analyst focused on turning complex datasets into clear, actionable'),
@@ -105,7 +106,10 @@ try {
   )
   assert.ok(!html.toLowerCase().includes('junior data scientist'), 'The outdated title must not render.')
 
-  assert.ok(html.includes('Featured case study'), 'The featured case study heading must render.')
+  assert.ok(
+    html.includes('Work that shows the full process.'),
+    'The selected-work heading must render.',
+  )
   assert.ok(html.includes('FinAccess Eswatini'), 'The completed FinAccess case study must render.')
   assert.ok(
     html.includes('How do financial access and mobile-money adoption vary across demographic'),
@@ -122,8 +126,8 @@ try {
   assert.ok(html.includes('Technical details'), 'Technical model details must remain available.')
   assert.ok(html.includes('ROC-AUC 0.745'), 'The financial model performance must remain available.')
   assert.ok(html.includes('ROC-AUC 0.726'), 'The mobile-money performance must remain available.')
-  assert.ok(html.includes('View live application'), 'The live application link must render.')
-  assert.ok(html.includes('Read case study on GitHub'), 'The GitHub case-study link must render.')
+  assert.ok(html.includes('Live project'), 'The live application link must render prominently.')
+  assert.ok(html.includes('View case study / GitHub'), 'The GitHub case-study link must render.')
   assert.ok(
     html.includes('https://github.com/thandofana/finaccess-eswatini/blob/main/README.md'),
     'The project link must use the verified direct README URL.',
@@ -133,11 +137,13 @@ try {
     'The discontinued trade project must not render.',
   )
 
-  assert.ok(html.includes('Demonstrated in featured work'), 'Demonstrated skills must be labelled.')
+  assert.ok(html.includes('Analysis'), 'Analysis skills must be labelled.')
+  assert.ok(html.includes('Data &amp; reporting'), 'Data and reporting skills must be labelled.')
   assert.ok(
-    html.includes('Additional tools and professional training'),
-    'Additional tools and training must be labelled.',
+    html.includes('Applied machine learning'),
+    'Applied machine-learning skills must be labelled.',
   )
+  assert.ok(html.includes('Analytical delivery'), 'Delivery skills must be labelled.')
   assert.ok(html.includes('Testing'), 'Testing must appear in demonstrated capabilities.')
   assert.ok(html.includes('Power BI'), 'Power BI must remain in additional tools and training.')
 

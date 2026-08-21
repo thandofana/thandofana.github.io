@@ -10,7 +10,7 @@ import skillGroups from '../data/skills.js'
 
 function PortfolioHome() {
   return (
-    <div id="top">
+    <div id="top" tabIndex="-1">
       <a className="skip-link" href="#main-content">Skip to content</a>
       <SiteHeader />
 
@@ -20,62 +20,50 @@ function PortfolioHome() {
             <div className="hero__grid">
               <div className="hero__copy">
                 <p className="eyebrow">{profile.professionalTitle}</p>
-                <p className="hero__identity">{profile.name} · {profile.location}</p>
-                <h1 id="hero-title">Turning complex data into decision-ready insight.</h1>
+                <h1 id="hero-title">{profile.name}</h1>
+                <p className="hero__position">
+                  Data Analyst building practical analytics, reporting and machine-learning
+                  solutions.
+                </p>
                 <p className="hero__summary">
-                  I use statistical analysis, Python and explainable machine learning to investigate
-                  business, financial and socioeconomic questions, uncover meaningful patterns and
-                  communicate what the evidence means.
+                  My projects use data to investigate real problems, produce defensible findings and
+                  turn analytical work into clear, usable outputs.
                 </p>
                 <div className="button-row">
-                  <Button href="#projects">View featured work</Button>
+                  <Button href="#projects">View projects</Button>
                   {profile.resume && (
-                    <Button
-                      href={profile.resume}
-                      variant="secondary"
-                      download="Thando_Fana_Dlamini_Resume.pdf"
-                    >
-                      Download résumé
+                    <Button href={profile.resume} variant="secondary" newTab>
+                      View CV
                     </Button>
                   )}
                 </div>
               </div>
 
-              <div
-                className="insight-visual"
-                role="img"
-                aria-label="Abstract analytical graphic representing patterns becoming clear insight"
-              >
-                <div className="insight-visual__header">
-                  <span>Data intelligence</span>
-                  <span className="insight-visual__signal"><i /> Signal active</span>
-                </div>
-                <div className="insight-visual__canvas" aria-hidden="true">
-                  <div className="insight-visual__matrix">
-                    {Array.from({ length: 48 }, (_, index) => (
-                      <i
-                        className={
-                          [5, 12, 13, 20, 21, 22, 29, 30, 37, 45].includes(index)
-                            ? 'is-active'
-                            : undefined
-                        }
-                        key={index}
-                      />
-                    ))}
+              <aside className="hero__profile" aria-label="Professional profile summary">
+                <p className="hero__profile-index">SZ / PROFILE</p>
+                <dl>
+                  <div>
+                    <dt>Based</dt>
+                    <dd>{profile.location}</dd>
                   </div>
-                  <div className="insight-visual__reading">
-                    <span>Analytical focus</span>
-                    <strong>Clear<br />insight.</strong>
-                    <small>Patterns interpreted in context.</small>
+                  <div>
+                    <dt>Focus</dt>
+                    <dd>Analysis, reporting &amp; applied ML</dd>
                   </div>
-                </div>
-                <div className="insight-visual__footer">
-                  <span>Patterns</span><i />
-                  <span>Context</span><i />
-                  <span>Clarity</span>
-                </div>
-              </div>
+                  <div>
+                    <dt>Approach</dt>
+                    <dd>Clear methods, useful outputs</dd>
+                  </div>
+                </dl>
+              </aside>
             </div>
+
+            <dl className="professional-strip" aria-label="Core professional capabilities">
+              <div><dt>Python</dt><dd>Analysis &amp; ML</dd></div>
+              <div><dt>SQL</dt><dd>Analytics &amp; reporting</dd></div>
+              <div><dt>Power BI</dt><dd>Visualisation</dd></div>
+              <div><dt>Eswatini</dt><dd>Based</dd></div>
+            </dl>
           </Container>
         </section>
 
@@ -90,7 +78,7 @@ function PortfolioHome() {
           <Container>
             <div className="about-grid">
               <div>
-                <p className="eyebrow">About</p>
+                <p className="eyebrow">02 · About</p>
                 <h2 id="about-title">Clear analysis, responsibly communicated.</h2>
               </div>
               <div className="about-copy">
@@ -113,7 +101,7 @@ function PortfolioHome() {
           <Container>
             <div className="section-heading">
               <div>
-                <p className="eyebrow">Skills</p>
+                <p className="eyebrow">03 · Capabilities</p>
                 <h2 id="skills-title">Technical skills, applied in practice.</h2>
               </div>
               <p>
@@ -147,9 +135,10 @@ function PortfolioHome() {
         >
           <Container>
             <div className="contact__inner">
-              <h2 className="contact__title" id="contact-title">
-                Contact
-              </h2>
+              <div>
+                <p className="eyebrow">05 · Contact</p>
+                <h2 className="contact__title" id="contact-title">Contact</h2>
+              </div>
               <address className="contact__details">
                 <a className="contact-card" href={`mailto:${profile.email}`}>
                   <span className="contact-card__copy">
