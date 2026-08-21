@@ -1,19 +1,19 @@
 :root {
   /* Colour */
-  --color-background: #f5f3ee;
-  --color-surface: #fbfaf7;
-  --color-surface-muted: #ece9e1;
-  --color-text: #191c1a;
-  --color-text-muted: #626963;
-  --color-text-faint: #878c87;
-  --color-border: #d7d4cc;
-  --color-border-strong: #b8b6af;
-  --color-accent: #174c3c;
-  --color-accent-strong: #10382d;
-  --color-accent-soft: #e5ece8;
-  --color-gold: #87632f;
-  --color-gold-soft: #efe7d9;
-  --color-focus: #9b6d25;
+  --color-background: #f3f0e9;
+  --color-surface: #fbf9f4;
+  --color-surface-muted: #e7e2d8;
+  --color-text: #1d2529;
+  --color-text-muted: #5f686d;
+  --color-text-faint: #828b90;
+  --color-border: #d4cec2;
+  --color-border-strong: #b7afa1;
+  --color-accent: #274c5b;
+  --color-accent-strong: #193844;
+  --color-accent-soft: #e2eaed;
+  --color-secondary: #a45f45;
+  --color-secondary-soft: #f0e1da;
+  --color-focus: #9a4f34;
 
   /* Typography */
   --font-sans: "Source Sans 3", "Segoe UI", Arial, sans-serif;
