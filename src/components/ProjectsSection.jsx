@@ -137,13 +137,13 @@ function ProjectsSection({ projects }) {
               <p className="project__responsible"><strong>Responsible use.</strong> {project.responsibleUse}</p>
             </section>
 
-            <footer className="project__footer">
+            <div className="project__footer">
               <p>See the analysis in context, or review the implementation and documentation.</p>
               <div className="project__actions">
                 <Button href={project.liveUrl}>Explore live project</Button>
                 <Button href={project.readmeUrl} variant="secondary">View on GitHub</Button>
               </div>
-            </footer>
+            </div>
           </article>
         ))}
       </Container>
