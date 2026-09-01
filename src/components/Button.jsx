@@ -12,7 +12,7 @@ function Button({ href, variant = 'primary', download, newTab = false, children 
         target={opensNewTab ? '_blank' : undefined}
         rel={opensNewTab ? 'noreferrer' : undefined}
       >
-        {children}
+        <span>{children}</span>
         <span aria-hidden="true">{opensNewTab ? '↗' : '→'}</span>
         {opensNewTab && <span className="sr-only"> (opens in a new tab)</span>}
       </a>

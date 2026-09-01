@@ -4,54 +4,76 @@ const projects = [
   {
     title: 'FinAccess Eswatini',
     slug: 'finaccess-eswatini',
-    category: 'Data science application',
+    category: 'End-to-end analytics case study',
     year: '2025',
-    status: 'complete',
-    statusLabel: 'Completed',
-    subtitle: 'Financial inclusion and mobile-money adoption in Eswatini',
+    subtitle: 'Understanding financial inclusion and mobile-money adoption in Eswatini.',
+    executiveSummary:
+      'I analysed World Bank Global Findex microdata for 1,051 respondents to understand who is being reached by formal financial services, where access gaps remain, and which factors are most useful for explaining those gaps. The work combines survey-weighted analysis, statistical testing, interpretable machine learning, and a responsive web application.',
     businessQuestion:
-      'How do financial access and mobile-money adoption vary across demographic, socioeconomic and digital-access groups in Eswatini?',
-    summary:
-      'I analysed 1,051 Eswatini respondents from the World Bank Global Findex using survey-weighted analysis, statistical testing and two independently validated machine-learning pipelines. I then delivered the evidence and model explanations through a responsive web application.',
-    focus: 'Financial inclusion & mobile-money adoption',
+      'How do financial access and mobile-money adoption vary across demographic, socioeconomic, and digital-access groups in Eswatini?',
+    role: 'Independent data analyst and developer',
     dataSource: 'World Bank Global Findex microdata',
-    methods: 'Survey-weighted analysis · Machine learning · SHAP',
+    scope: '1,051 respondents / 199 raw variables',
+    output: 'Analysis, two models, API, and web app',
     image: finAccessDashboard,
     imageAlt:
-      'FinAccess Eswatini dashboard showing 43.1% financial-institution account ownership, 50.4% mobile-money account ownership and 1,051 respondents',
+      'FinAccess Eswatini dashboard showing financial account ownership, mobile-money adoption, respondent count, and validated models.',
     imageWidth: 1440,
     imageHeight: 1050,
     findings: [
       { value: '43.1%', label: 'Estimated financial-institution account ownership' },
       { value: '50.4%', label: 'Estimated mobile-money account ownership' },
       {
-        value: '36.8% → 82.4%',
-        label:
-          'Financial inclusion, from primary education or less to tertiary education or more',
+        value: '36.8% to 82.4%',
+        label: 'Financial inclusion from the lowest to highest education group',
       },
       {
-        value: '34.1% → 65.0%',
-        label: 'Financial inclusion, from the lowest to the highest income quintile',
+        value: '34.1% to 65.0%',
+        label: 'Financial inclusion from the lowest to highest income quintile',
       },
     ],
-    decisionRelevance:
-      'The findings identify education, income and digital access as important segmentation dimensions for further financial-service design and policy research. They describe observed associations and should not be interpreted as causal effects.',
-    deliverables: [
-      'Survey-weighted exploratory and statistical analysis',
-      'Documented data audit and leakage review',
-      'Two independently validated prediction pipelines',
-      'SHAP-based global and individual explanations',
-      'FastAPI inference service',
-      'Responsive Next.js analytical application',
-      'Automated data, model, API and interface tests',
+    process: [
+      {
+        number: '01',
+        title: 'Audit and prepare',
+        description:
+          'Reviewed 199 variables, documented data quality, selected defensible features, and checked for target leakage before analysis.',
+      },
+      {
+        number: '02',
+        title: 'Analyse the evidence',
+        description:
+          'Applied survey weights, compared access across population groups, and used statistical tests to distinguish meaningful patterns from noise.',
+      },
+      {
+        number: '03',
+        title: 'Model and explain',
+        description:
+          'Built two independently validated classification pipelines and used SHAP to explain global patterns and individual predictions.',
+      },
+      {
+        number: '04',
+        title: 'Deliver the work',
+        description:
+          'Turned the analysis into a tested FastAPI service and responsive Next.js application so the evidence can be explored clearly.',
+      },
     ],
-    technicalDetails: [
+    modelResults: [
       'Financial-institution account model: ROC-AUC 0.745',
       'Mobile-money account model: ROC-AUC 0.726',
-      '1,051 respondents and 199 raw variables reviewed before analysis and modelling',
     ],
-    responsibleUse:
-      'Proof of concept for analysis and decision support—not a financial eligibility or credit-decision system.',
+    interpretation:
+      'Education, income, and digital access emerged as useful segmentation dimensions. The results make access gaps easier to locate and discuss, while the model explanations show which inputs contribute most strongly to predictions.',
+    recommendations: [
+      'Segment future service research and outreach by education and income level instead of treating the market as one uniform group.',
+      'Investigate digital-access barriers before relying on mobile-first financial inclusion strategies.',
+      'Pair national survey evidence with current local and qualitative research before making programme or policy decisions.',
+    ],
+    nextSteps: [
+      'Validate the findings against newer Eswatini data when it becomes available.',
+      'Test whether the observed gaps persist within age, gender, and rural-access subgroups.',
+      'Add outcome monitoring so future interventions can be evaluated over time.',
+    ],
     technologies: [
       'Python',
       'Pandas',
@@ -61,9 +83,10 @@ const projects = [
       'Next.js',
       'TypeScript',
     ],
+    responsibleUse:
+      'This is a proof of concept for analysis and decision support, not a financial eligibility or credit-decision system. The findings are associations and should not be interpreted as causal effects.',
     readmeUrl: 'https://github.com/thandofana/finaccess-eswatini/blob/main/README.md',
     liveUrl: 'https://finaccess-eswatini.vercel.app',
-    featured: true,
   },
 ]
 
