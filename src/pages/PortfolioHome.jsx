@@ -1,5 +1,5 @@
-import BackgroundSection from '../components/BackgroundSection.jsx'
 import Button from '../components/Button.jsx'
+import BackgroundSection from '../components/BackgroundSection.jsx'
 import Container from '../components/Container.jsx'
 import ProjectsSection from '../components/ProjectsSection.jsx'
 import SiteFooter from '../components/SiteFooter.jsx'
@@ -15,60 +15,105 @@ function PortfolioHome() {
       <SiteHeader />
 
       <main id="main-content" tabIndex="-1">
-        <section className="hero" aria-labelledby="hero-title">
+        <section className="hero section" aria-labelledby="hero-title">
           <Container>
-            <div className="hero__status">
-              <span aria-hidden="true" />
-              {profile.professionalTitle} based in {profile.location}
-            </div>
-
-            <div className="hero__layout">
-              <div>
-                <h1 id="hero-title">
-                  I turn complex data into <span>decision-ready insight.</span>
-                </h1>
-              </div>
-              <div className="hero__intro">
-                <p>
-                  I am Thando F. Dlamini, a data analyst who works across analysis, reporting, and
-                  applied machine learning to answer real business questions clearly.
+            <div className="hero__grid">
+              <div className="hero__copy">
+                <p className="eyebrow">{profile.professionalTitle}</p>
+                <h1 id="hero-title">{profile.name}</h1>
+                <p className="hero__position">
+                  Data Analyst building practical analytics, reporting and machine-learning
+                  solutions.
+                </p>
+                <p className="hero__summary">
+                  My projects use data to investigate real problems, produce defensible findings and
+                  turn analytical work into clear, usable outputs.
                 </p>
                 <div className="button-row">
-                  <Button href="#work">View featured case study</Button>
-                  <Button href={profile.resume} variant="secondary" newTab>View CV</Button>
+                  <Button href="#projects">View projects</Button>
+                  {profile.resume && (
+                    <Button href={profile.resume} variant="secondary" newTab>
+                      View CV
+                    </Button>
+                  )}
                 </div>
               </div>
+
+              <aside className="hero__profile" aria-label="Professional profile summary">
+                <p className="hero__profile-index">SZ / PROFILE</p>
+                <dl>
+                  <div>
+                    <dt>Based</dt>
+                    <dd>{profile.location}</dd>
+                  </div>
+                  <div>
+                    <dt>Focus</dt>
+                    <dd>Analysis, reporting &amp; applied ML</dd>
+                  </div>
+                  <div>
+                    <dt>Approach</dt>
+                    <dd>Clear methods, useful outputs</dd>
+                  </div>
+                </dl>
+              </aside>
             </div>
 
-            <dl className="proof-strip" aria-label="Portfolio highlights">
-              <div><dt>01</dt><dd>End-to-end case study</dd></div>
-              <div><dt>1,051</dt><dd>Survey respondents analysed</dd></div>
-              <div><dt>02</dt><dd>Validated ML pipelines</dd></div>
-              <div><dt>Full stack</dt><dd>Analysis to live product</dd></div>
+            <dl className="professional-strip" aria-label="Core professional capabilities">
+              <div><dt>Python</dt><dd>Analysis &amp; ML</dd></div>
+              <div><dt>SQL</dt><dd>Analytics &amp; reporting</dd></div>
+              <div><dt>Power BI</dt><dd>Visualisation</dd></div>
+              <div><dt>Eswatini</dt><dd>Based</dd></div>
             </dl>
           </Container>
         </section>
 
         <ProjectsSection projects={projects} />
 
-        <section className="about section" id="about" aria-labelledby="about-title" tabIndex="-1">
+        <section
+          className="section section--surface"
+          id="about"
+          aria-labelledby="about-title"
+          tabIndex="-1"
+        >
           <Container>
-            <div className="section-intro section-intro--light">
-              <p className="kicker">About</p>
+            <div className="about-grid">
               <div>
-                <h2 id="about-title">Technical depth with a clear business point of view.</h2>
+                <p className="eyebrow">02 · About</p>
+                <h2 id="about-title">Clear analysis, responsibly communicated.</h2>
+              </div>
+              <div className="about-copy">
                 <p>
-                  I focus on the full analytical process: framing the right question, preparing
-                  trustworthy data, finding patterns, validating results, and communicating what
-                  the evidence means for a decision.
+                  I’m a data analyst focused on turning complex datasets into clear, actionable
+                  insights. My work combines data cleaning, exploratory analysis, statistical
+                  reasoning and applied machine learning, with an emphasis on transparent methods
+                  and meaningful interpretation.
+                </p>
+                <p>
+                  I also build APIs, dashboards and analytical applications that make data easier to
+                  explore, understand and communicate.
                 </p>
               </div>
             </div>
+          </Container>
+        </section>
 
-            <div className="capability-grid">
+        <section className="section" id="skills" aria-labelledby="skills-title" tabIndex="-1">
+          <Container>
+            <div className="section-heading">
+              <div>
+                <p className="eyebrow">03 · Capabilities</p>
+                <h2 id="skills-title">Technical skills, applied in practice.</h2>
+              </div>
+              <p>
+                Skills demonstrated through project work and developed through training and continued
+                practice.
+              </p>
+            </div>
+
+            <div className="skills-grid">
               {skillGroups.map((group, index) => (
-                <article key={group.category}>
-                  <span>{String(index + 1).padStart(2, '0')}</span>
+                <article className="skill-group" key={group.category}>
+                  <span className="skill-group__number">{String(index + 1).padStart(2, '0')}</span>
                   <h3>{group.category}</h3>
                   <p>{group.description}</p>
                   <ul>
@@ -82,15 +127,46 @@ function PortfolioHome() {
 
         <BackgroundSection />
 
-        <section className="contact" id="contact" aria-labelledby="contact-title" tabIndex="-1">
-          <Container className="contact__layout">
-            <p className="kicker">Contact</p>
-            <div>
-              <h2 id="contact-title">Have a data problem worth solving?</h2>
-              <p>Let&apos;s talk about the question, the evidence, and the outcome you need.</p>
-              <a className="email-link" href={`mailto:${profile.email}`}>
-                {profile.email}<span aria-hidden="true">↗</span>
-              </a>
+        <section
+          className="section contact"
+          id="contact"
+          aria-labelledby="contact-title"
+          tabIndex="-1"
+        >
+          <Container>
+            <div className="contact__inner">
+              <div>
+                <p className="eyebrow">05 · Contact</p>
+                <h2 className="contact__title" id="contact-title">Contact</h2>
+              </div>
+              <address className="contact__details">
+                <a className="contact-card" href={`mailto:${profile.email}`}>
+                  <span className="contact-card__copy">
+                    <span className="contact-card__label">Email</span>
+                    <span className="contact-card__value">{profile.email}</span>
+                  </span>
+                  <span className="contact-card__arrow" aria-hidden="true">
+                    ↗
+                  </span>
+                </a>
+                {profile.linkedin && (
+                  <a
+                    className="contact-card"
+                    href={profile.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="View Thando F. Dlamini on LinkedIn in a new tab"
+                  >
+                    <span className="contact-card__copy">
+                      <span className="contact-card__label">LinkedIn</span>
+                      <span className="contact-card__value">LinkedIn profile</span>
+                    </span>
+                    <span className="contact-card__arrow" aria-hidden="true">
+                      ↗
+                    </span>
+                  </a>
+                )}
+              </address>
             </div>
           </Container>
         </section>
