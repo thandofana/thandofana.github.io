@@ -27,74 +27,155 @@ try {
     nav: (html.match(/<nav\b/g) || []).length,
     footer: (html.match(/<footer\b/g) || []).length,
   }
+  const headings = {
+    h1: (html.match(/<h1\b/g) || []).length,
+    h2: (html.match(/<h2\b/g) || []).length,
+    h3: (html.match(/<h3\b/g) || []).length,
+    h4: (html.match(/<h4\b/g) || []).length,
+  }
 
   assert.equal(landmarks.main, 1, 'The page must contain exactly one main landmark.')
   assert.equal(landmarks.footer, 1, 'The page must contain exactly one footer landmark.')
   assert.ok(landmarks.header >= 1, 'The page must contain a header landmark.')
   assert.ok(landmarks.nav >= 1, 'The page must contain a navigation landmark.')
-  assert.equal((html.match(/<h1\b/g) || []).length, 1, 'The page must contain exactly one h1.')
+  assert.equal(headings.h1, 1, 'The page must contain exactly one h1.')
   assert.deepEqual(missingAnchorTargets, [], 'Every same-page link must resolve to an element ID.')
   assert.ok(
-    html.indexOf('id="work"') < html.indexOf('id="about"') &&
-      html.indexOf('id="about"') < html.indexOf('id="background"') &&
+    html.indexOf('id="projects"') < html.indexOf('id="about"') &&
+      html.indexOf('id="about"') < html.indexOf('id="skills"') &&
+      html.indexOf('id="skills"') < html.indexOf('id="background"') &&
       html.indexOf('id="background"') < html.indexOf('id="contact"'),
-    'Homepage sections must follow the recruiter-first order.',
+    'Homepage sections must follow the approved recruiter-first order.',
   )
 
   assert.equal(images.length, 1, 'The featured case study must render one preview image.')
-  assert.ok(images.every((image) => /\balt="[^"]+"/.test(image)), 'Every image needs alt text.')
   assert.ok(
-    images.every((image) => /\bwidth="\d+"/.test(image) && /\bheight="\d+"/.test(image)),
-    'Every image must reserve its layout dimensions.',
+    images.every((image) => /\balt="[^"]+"/.test(image)),
+    'Every rendered image must have descriptive alternative text.',
   )
   assert.ok(
-    images.every((image) => /\bloading="lazy"/.test(image) && /\bdecoding="async"/.test(image)),
-    'The project image must use the approved loading strategy.',
+    images.every((image) => /\bwidth="\d+"/.test(image) && /\bheight="\d+"/.test(image)),
+    'Every rendered image must reserve its layout dimensions.',
+  )
+  assert.ok(
+    images.every(
+      (image) => /\bloading="lazy"/.test(image) && /\bdecoding="async"/.test(image),
+    ),
+    'The featured project image must use the approved loading strategy.',
   )
   assert.ok(
     newTabLinks.every((link) => /\brel="noreferrer"/.test(link)),
     'Every new-tab link must use the approved relationship attribute.',
   )
 
-  assert.ok(html.includes('decision-ready insight.'), 'The professional positioning must render.')
-  assert.ok(html.includes('Data Analyst based in Eswatini'), 'The role and location must render.')
   assert.ok(html.includes('View CV'), 'The primary CV action must render.')
   assert.ok(html.includes('Download CV'), 'The downloadable CV action must render.')
   assert.ok(
+    html.includes('href="/resume/Thando_Fana_Dlamini_Resume.pdf"'),
+    'The résumé download must link to the verified local PDF.',
+  )
+  assert.ok(
     html.includes('download="Thando_Fana_Dlamini_Resume.pdf"'),
-    'The résumé must download with a clear filename.',
+    'The résumé link must download with a clear filename.',
   )
   await access('public/resume/Thando_Fana_Dlamini_Resume.pdf')
 
-  assert.ok(html.includes('FinAccess Eswatini'), 'The completed case study must render.')
-  assert.ok(html.includes('Executive summary'), 'The project must start with an executive summary.')
-  assert.ok(html.includes('The business question'), 'The business question must be labelled.')
+  assert.ok(
+    html.includes('Data · Analytics · Applied Machine Learning'),
+    'The unified professional title must render.',
+  )
+  assert.ok(
+    html.includes('<h1 id="hero-title">Thando F. Dlamini</h1>'),
+    'The approved hero heading must render.',
+  )
+  assert.ok(
+    html.includes('Data Analyst building practical analytics, reporting and machine-learning'),
+    'The approved professional positioning must render.',
+  )
+  assert.ok(
+    html.includes('I’m a data analyst focused on turning complex datasets into clear, actionable'),
+    'The approved About introduction must render.',
+  )
+  assert.ok(
+    html.includes('Technical skills, applied in practice.'),
+    'The approved Skills heading must render.',
+  )
+  assert.ok(
+    html.includes('Education and experience, put to work.'),
+    'The approved Background heading must render.',
+  )
+  assert.ok(!html.toLowerCase().includes('junior data scientist'), 'The outdated title must not render.')
+
+  assert.ok(
+    html.includes('Work that shows the full process.'),
+    'The selected-work heading must render.',
+  )
+  assert.ok(html.includes('FinAccess Eswatini'), 'The completed FinAccess case study must render.')
   assert.ok(
     html.includes('How do financial access and mobile-money adoption vary across demographic'),
     'The verified business question must render.',
   )
-  assert.ok(html.includes('Audit and prepare'), 'The analytical method must render.')
   assert.ok(html.includes('43.1%'), 'The financial-institution estimate must render.')
   assert.ok(html.includes('50.4%'), 'The mobile-money estimate must render.')
-  assert.ok(html.includes('36.8% to 82.4%'), 'The education finding must render.')
-  assert.ok(html.includes('34.1% to 65.0%'), 'The income finding must render.')
-  assert.ok(html.includes('Recommendations and next steps'), 'Business recommendations must render.')
+  assert.ok(html.includes('36.8% → 82.4%'), 'The education finding must render.')
+  assert.ok(html.includes('34.1% → 65.0%'), 'The income finding must render.')
   assert.ok(
     html.includes('should not be interpreted as causal effects'),
-    'The non-causal interpretation statement must render.',
+    'The non-causal decision-relevance statement must render.',
   )
-  assert.ok(html.includes('ROC-AUC 0.745'), 'The financial model performance must render.')
-  assert.ok(html.includes('ROC-AUC 0.726'), 'The mobile-money model performance must render.')
+  assert.ok(html.includes('Technical details'), 'Technical model details must remain available.')
+  assert.ok(html.includes('ROC-AUC 0.745'), 'The financial model performance must remain available.')
+  assert.ok(html.includes('ROC-AUC 0.726'), 'The mobile-money performance must remain available.')
+  assert.ok(html.includes('Live project'), 'The live application link must render prominently.')
+  assert.ok(html.includes('View case study / GitHub'), 'The GitHub case-study link must render.')
   assert.ok(
     html.includes('https://github.com/thandofana/finaccess-eswatini/blob/main/README.md'),
-    'The verified GitHub case-study link must render.',
+    'The project link must use the verified direct README URL.',
+  )
+  assert.ok(
+    !/Trade Intelligence|UN Comtrade|Work in progress|Data acquisition/i.test(html),
+    'The discontinued trade project must not render.',
   )
 
-  assert.ok(html.includes('Technical depth with a clear business point of view.'))
+  assert.ok(html.includes('Analysis'), 'Analysis skills must be labelled.')
+  assert.ok(html.includes('Data &amp; reporting'), 'Data and reporting skills must be labelled.')
+  assert.ok(
+    html.includes('Applied machine learning'),
+    'Applied machine-learning skills must be labelled.',
+  )
+  assert.ok(html.includes('Analytical delivery'), 'Delivery skills must be labelled.')
+  assert.ok(html.includes('Testing'), 'Testing must appear in demonstrated capabilities.')
+  assert.ok(html.includes('Power BI'), 'Power BI must remain in additional tools and training.')
+
   assert.ok(html.includes('Datamatics Eswatini'), 'Verified internship experience must render.')
   assert.ok(html.includes('University of Eswatini'), 'Verified education must render.')
-  assert.ok(html.includes('Google Data Analytics Professional Certificate'))
-  assert.ok(html.includes('href="mailto:dlaminithandofana@gmail.com"'))
+  assert.ok(
+    html.includes('Google Data Analytics Professional Certificate'),
+    'Verified professional learning must render.',
+  )
+  assert.ok(
+    html.includes('href="/certificates/google-data-analytics.pdf"'),
+    'The Google Data Analytics certificate PDF must be linked.',
+  )
+  assert.ok(
+    html.includes('href="/certificates/excel-data-analysis.pdf"'),
+    'The Excel Data Analysis certificate PDF must be linked.',
+  )
+
+  assert.ok(
+    html.includes('href="mailto:dlaminithandofana@gmail.com"'),
+    'The verified email address must render as a contact link.',
+  )
+  assert.ok(
+    !html.includes('href="https://github.com/thandofana"'),
+    'The personal GitHub profile must not render as a contact link.',
+  )
+  assert.ok(!html.includes('Start a conversation.'), 'The old contact headline must not render.')
+  assert.ok(
+    !html.includes('Open to data-analysis opportunities'),
+    'The old contact description must not render.',
+  )
+  assert.ok(!html.includes('href="tel:'), 'Phone numbers must not render on the public homepage.')
   assert.ok(!html.includes('LinkedIn'), 'LinkedIn must remain hidden until its URL is provided.')
 
   console.log(
@@ -102,11 +183,13 @@ try {
       {
         renderedCharacters: html.length,
         landmarks,
+        headings,
         internalLinks: anchorTargets.length,
         missingAnchorTargets,
         images: images.length,
         newTabLinks: newTabLinks.length,
         featuredProjects: 1,
+        verifiedResumeDetailsPresent: true,
       },
       null,
       2,
