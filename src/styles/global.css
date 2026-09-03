@@ -108,7 +108,6 @@ p {
   position: sticky;
   z-index: 20;
   top: 0;
-  border-bottom: 1px solid var(--color-border);
   background: rgb(252 252 250 / 94%);
   backdrop-filter: blur(12px);
 }
@@ -210,7 +209,6 @@ p {
 /* Project gallery */
 .projects-gallery {
   padding-block: clamp(4.5rem, 8vw, 8rem);
-  border-top: 1px solid var(--color-border);
 }
 
 .projects-gallery__heading {
@@ -376,13 +374,8 @@ p {
   margin-top: var(--space-8);
 }
 
-.case-study-content {
-  border-top: 1px solid var(--color-border-strong);
-}
-
 .case-study-section {
   padding-block: clamp(5rem, 8vw, 8rem);
-  border-bottom: 1px solid var(--color-border);
 }
 
 .case-study-section__heading {
@@ -741,7 +734,6 @@ p {
 /* Footer */
 .site-footer {
   padding-block: var(--space-8);
-  border-top: 1px solid var(--color-border);
   background: var(--color-background);
 }
 
