@@ -284,7 +284,6 @@ p {
   gap: var(--space-5);
   margin-top: var(--space-6);
   padding-top: var(--space-4);
-  border-top: 1px solid var(--color-border);
   color: var(--color-text);
   font-size: var(--text-sm);
   font-weight: 600;
@@ -415,22 +414,16 @@ p {
 .executive-summary {
   display: grid;
   margin-top: clamp(3rem, 6vw, 5rem);
-  border-top: 1px solid var(--color-border-strong);
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .executive-summary article {
   min-height: 15rem;
   padding: var(--space-6) var(--space-8) var(--space-8) 0;
-  border-right: 1px solid var(--color-border);
 }
 
 .executive-summary article:not(:first-child) {
   padding-left: var(--space-8);
-}
-
-.executive-summary article:last-child {
-  border-right: 0;
 }
 
 .executive-summary h3,
@@ -457,7 +450,6 @@ p {
 
 .business-problem-grid > div {
   padding-top: var(--space-5);
-  border-top: 1px solid var(--color-border-strong);
 }
 
 .business-problem-grid p {
@@ -468,7 +460,6 @@ p {
   display: grid;
   margin: clamp(3rem, 6vw, 5rem) 0 0 calc(18% + var(--space-6));
   padding: 0;
-  border-top: 1px solid var(--color-border-strong);
   grid-template-columns: repeat(3, minmax(0, 1fr));
   list-style: none;
 }
@@ -479,12 +470,6 @@ p {
   align-content: start;
   gap: var(--space-5);
   padding: var(--space-5);
-  border-right: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.methodology-flow li:nth-child(3n) {
-  border-right: 0;
 }
 
 .methodology-flow span {
@@ -509,21 +494,15 @@ p {
   display: grid;
   margin-top: clamp(3rem, 6vw, 5rem);
   margin-left: calc(18% + var(--space-6));
-  border-top: 1px solid var(--color-border-strong);
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .skills-tools-grid article {
   padding: var(--space-6) var(--space-8) var(--space-6) 0;
-  border-right: 1px solid var(--color-border);
 }
 
 .skills-tools-grid article:not(:first-child) {
   padding-left: var(--space-8);
-}
-
-.skills-tools-grid article:last-child {
-  border-right: 0;
 }
 
 .skills-tools-grid h3 {
@@ -538,7 +517,6 @@ p {
 
 .skills-tools-grid li {
   padding-block: var(--space-3);
-  border-top: 1px solid var(--color-border);
   color: var(--color-text-muted);
   font-size: var(--text-sm);
 }
@@ -551,7 +529,6 @@ p {
   display: grid;
   gap: var(--space-6) clamp(2rem, 5vw, 5rem);
   padding-block: clamp(2.5rem, 5vw, 4.5rem);
-  border-top: 1px solid var(--color-border-strong);
   grid-template-columns: minmax(3rem, 0.18fr) minmax(0, 1.1fr) minmax(17rem, 0.62fr);
 }
 
@@ -590,7 +567,6 @@ p {
 
 .result-entry__visual figcaption {
   padding: var(--space-4);
-  border-top: 1px solid var(--color-border);
   color: var(--color-text-muted);
   font-size: var(--text-xs);
 }
@@ -598,19 +574,16 @@ p {
 .result-metrics {
   display: grid;
   margin: var(--space-4) 0 0;
-  border-block: 1px solid var(--color-border);
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .result-metrics div {
   min-height: 10rem;
   padding: var(--space-6) var(--space-6) var(--space-6) 0;
-  border-right: 1px solid var(--color-border);
 }
 
 .result-metrics div:not(:first-child) {
   padding-left: var(--space-6);
-  border-right: 0;
 }
 
 .result-metrics dt {
@@ -639,7 +612,6 @@ p {
 .text-list-section {
   margin: clamp(3rem, 6vw, 5rem) 0 0 calc(18% + var(--space-6));
   padding: 0;
-  border-top: 1px solid var(--color-border-strong);
   list-style: none;
 }
 
@@ -648,7 +620,6 @@ p {
   display: grid;
   gap: var(--space-6);
   padding-block: var(--space-8);
-  border-bottom: 1px solid var(--color-border);
   grid-template-columns: 3rem minmax(0, 1fr);
 }
 
@@ -678,10 +649,6 @@ p {
   font-style: italic;
 }
 
-.project-explore {
-  border-bottom: 0;
-}
-
 .project-explore__actions {
   margin-top: clamp(3rem, 6vw, 5rem);
   margin-left: calc(18% + var(--space-6));
@@ -693,7 +660,6 @@ p {
   gap: var(--space-8);
   margin-top: clamp(4rem, 8vw, 7rem);
   padding-top: var(--space-6);
-  border-top: 1px solid var(--color-border-strong);
 }
 
 .project-pagination a {
@@ -832,20 +798,10 @@ p {
   .skills-tools-grid article:not(:first-child) {
     min-height: 0;
     padding: var(--space-6) 0;
-    border-right: 0;
-    border-bottom: 1px solid var(--color-border);
   }
 
   .methodology-flow {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .methodology-flow li:nth-child(3n) {
-    border-right: 1px solid var(--color-border);
-  }
-
-  .methodology-flow li:nth-child(2n) {
-    border-right: 0;
   }
 
   .result-entry {
@@ -883,7 +839,6 @@ p {
   .methodology-flow li:nth-child(2n),
   .methodology-flow li:nth-child(3n) {
     min-height: 6.5rem;
-    border-right: 0;
   }
 
   .result-entry {
@@ -903,8 +858,6 @@ p {
   .result-metrics div:not(:first-child) {
     min-height: 8rem;
     padding: var(--space-6) 0;
-    border-right: 0;
-    border-bottom: 1px solid var(--color-border);
   }
 
   .recommendations-list li,
