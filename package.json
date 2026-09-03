@@ -8,7 +8,9 @@
     "build": "vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "qa:render": "node scripts/qa-render.mjs"
+    "qa:browser": "node scripts/qa-browser.mjs",
+    "qa:render": "node scripts/qa-render.mjs",
+    "qa:readme": "node scripts/validate-readme-template.mjs"
   },
   "dependencies": {
     "react": "^19.2.8",

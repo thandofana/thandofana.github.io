@@ -34,6 +34,9 @@ jobs:
       - name: Validate rendered page
         run: npm run qa:render
 
+      - name: Validate README standard
+        run: npm run qa:readme
+
       - name: Lint source
         run: npm run lint
 
