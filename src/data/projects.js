@@ -8,6 +8,9 @@ import mobileMoneyEvaluation from '../assets/finaccess/mobile-money-evaluation.p
 import overallAccessRates from '../assets/finaccess/overall-access-rates.png'
 import socioeconomicPatterns from '../assets/finaccess/socioeconomic-patterns.png'
 import bankingSectorSummary from '../assets/banking/banking-sector-summary.svg'
+import bankingSectorOverview from '../assets/banking/01-banking-sector-overview.png'
+import depositsAndCredit from '../assets/banking/02-deposits-and-credit.png'
+import financialConditions from '../assets/banking/03-financial-conditions.png'
 
 const projects = [
   {
@@ -348,18 +351,23 @@ const projects = [
     statusLabel: 'Completed',
     subtitle: 'PostgreSQL banking analytics using official Central Bank statistics',
     cardSummary:
-      'PostgreSQL analysis of lending, deposits, liquidity, credit and monetary conditions in Eswatini.',
+      'PostgreSQL and Power BI analysis of lending, deposits, liquidity, credit and monetary conditions in Eswatini.',
     highlight: 'Loan growth +28.45%',
     summary:
-      'A revision-aware SQL analytics and reporting system built from 21 Central Bank of Eswatini statistical releases.',
+      'A revision-aware SQL analytics system and completed three-page Power BI dashboard built from 21 Central Bank of Eswatini statistical releases.',
     focus: 'Banking-sector performance, liquidity, credit and monetary conditions',
     dataSource: 'Central Bank of Eswatini Monthly Statistical Release',
-    methods: 'PDF extraction · Revision handling · PostgreSQL · Time-series SQL · Reporting views',
-    image: bankingSectorSummary,
-    imageAlt:
+    methods: 'PDF extraction · Revision handling · PostgreSQL · Time-series SQL · Power BI',
+    cardImage: bankingSectorSummary,
+    cardImageAlt:
       'Project summary visual for Eswatini Banking Sector Analytics showing verified loan growth, data coverage and SQL validation metrics',
-    imageWidth: 1440,
-    imageHeight: 1050,
+    cardImageWidth: 1440,
+    cardImageHeight: 1050,
+    image: bankingSectorOverview,
+    imageAlt:
+      'Banking Sector Overview Power BI dashboard showing monthly loans, deposits, loan-to-deposit ratio, liquidity surplus and lending growth for Eswatini',
+    imageWidth: 1536,
+    imageHeight: 678,
     executiveSummary: {
       businessProblem:
         'Banking and monetary indicators are distributed across recurring official PDFs with overlapping months and revised figures, making consistent historical analysis difficult.',
@@ -380,7 +388,7 @@ const projects = [
     },
     methodology: {
       introduction:
-        'The workflow separates source extraction from analytical calculation: Python prepares revision-aware datasets, while PostgreSQL owns the model, time-series logic, quality checks and reporting outputs.',
+        'The workflow separates source extraction from analytical calculation: Python prepares revision-aware datasets, PostgreSQL owns the model and KPI logic, and Power BI presents the governed reporting layer.',
       steps: [
         {
           title: 'Source inventory',
@@ -415,12 +423,12 @@ const projects = [
         {
           title: 'Reporting layer',
           description:
-            'Created three governed views so KPI definitions remain in SQL and downstream reporting receives stable, reusable fields.',
+            'Created three governed views and connected them to a completed three-page Power BI dashboard containing 24 data visuals.',
         },
         {
           title: 'Quality gates',
           description:
-            'Rebuilt and tested the full pipeline through PostgreSQL 18.6, with 15 of 15 analytical questions and all reporting checks passing.',
+            'Rebuilt and tested the full pipeline through PostgreSQL 18.6, then opened, refreshed and visually verified the PBIP report in Power BI Desktop.',
         },
       ],
     },
@@ -460,7 +468,9 @@ const projects = [
           'Growth analysis',
           'Liquidity analysis',
           'Data dictionary',
-          'Power BI specification',
+          'Power BI Desktop',
+          'PBIP source format',
+          'Semantic modelling',
           'Reproducible reporting',
         ],
       },
@@ -477,6 +487,17 @@ const projects = [
       },
       {
         title: 'Deposit composition',
+        visuals: [
+          {
+            image: depositsAndCredit,
+            imageWidth: 1536,
+            imageHeight: 678,
+            imageAlt:
+              'Deposits and Credit Power BI dashboard showing deposit composition, deposit balances, business and household credit, growth and monthly leadership',
+            caption:
+              'The completed Deposits & Credit page combines funding composition with private-sector credit comparisons.',
+          },
+        ],
         metrics: [
           { value: '+32.92%', label: 'Time-deposit growth' },
           { value: '58.62%', label: 'Time-deposit share in June 2026' },
@@ -513,6 +534,17 @@ const projects = [
       },
       {
         title: 'Reserve and import-cover conditions',
+        visuals: [
+          {
+            image: financialConditions,
+            imageWidth: 1536,
+            imageHeight: 678,
+            imageAlt:
+              'Financial Conditions Power BI dashboard showing liquidity, securities, money supply, foreign assets, reserves and import cover',
+            caption:
+              'The completed Financial Conditions page preserves the July 2026 reserve observation without forward-filling banking or monetary fields.',
+          },
+        ],
         metrics: [
           { value: 'E7.844bn–E15.476bn', label: 'Gross official reserve range' },
           { value: '2.30 months', label: 'Import cover in July 2026' },
@@ -548,8 +580,9 @@ const projects = [
       },
     ],
     nextSteps: [
-      'Implement the specified three-page Power BI report from the governed SQL views, then capture screenshots only after the connected report has been verified.',
       'Append future Central Bank releases through the same revision-aware pipeline and rerun the documented quality gates.',
+      'Refresh the PBIP report and its screenshots whenever the validated source snapshots change.',
+      'Publish through Power BI Service only if a suitable public-sharing option and data-governance review become available.',
       'Automate recurring extraction and validation checks while preserving the source inventory and revision log.',
       'Add explicit uncertainty or source-warning annotations to downstream reporting for the documented July reconciliation exceptions.',
     ],
@@ -560,7 +593,7 @@ const projects = [
       'The household series includes non-profit institutions serving households (NPISH).',
       'Import-cover values are revision-prone because the underlying import inputs lag.',
       'The analysis is descriptive and does not establish causation, forecast outcomes or assess regulatory adequacy.',
-      'The repository contains a complete Power BI specification but not a connected .pbix file or dashboard screenshots.',
+      'The committed PBIP dashboard uses a reproducible snapshot of the supplied releases and must be refreshed when the source set changes.',
     ],
     responsibleUse:
       'Independent descriptive analysis for historical monitoring and decision support—not a forecast, causal study or regulatory assessment.',

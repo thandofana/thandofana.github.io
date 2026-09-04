@@ -123,7 +123,7 @@ try {
     'The verified Eswatini banking SQL project must render.',
   )
   assert.ok(
-    html.includes('PostgreSQL analysis of lending, deposits, liquidity, credit and monetary conditions in Eswatini.'),
+    html.includes('PostgreSQL and Power BI analysis of lending, deposits, liquidity, credit and monetary conditions in Eswatini.'),
     'The banking project card must explain its analytical scope.',
   )
   assert.ok(
@@ -291,7 +291,7 @@ try {
   )
   assert.ok(
     !bankingCaseStudyHtml.includes('Open Interactive Dashboard'),
-    'The banking case study must not claim an interactive dashboard that is not published.',
+    'The banking case study must not claim a public interactive dashboard URL that is not published.',
   )
   assert.ok(
     bankingCaseStudyHtml.includes('+28.45%') &&
@@ -307,8 +307,23 @@ try {
   )
   assert.equal(
     bankingCaseStudyImages.length,
-    1,
-    'The banking case study must use one honest summary visual until dashboard screenshots exist.',
+    3,
+    'The banking case study must render all three verified Power BI dashboard pages.',
+  )
+  assert.ok(
+    bankingCaseStudyHtml.includes('Banking Sector Overview Power BI dashboard') &&
+      bankingCaseStudyHtml.includes('Deposits and Credit Power BI dashboard') &&
+      bankingCaseStudyHtml.includes('Financial Conditions Power BI dashboard'),
+    'The completed Power BI pages must have descriptive alternative text.',
+  )
+  assert.ok(
+    bankingCaseStudyHtml.includes('completed three-page Power BI dashboard') &&
+      bankingCaseStudyHtml.includes('PBIP report in Power BI Desktop'),
+    'The banking case study must describe the verified completed dashboard.',
+  )
+  assert.ok(
+    !bankingCaseStudyHtml.includes('not a connected .pbix file or dashboard screenshots'),
+    'The obsolete unfinished-dashboard limitation must be removed.',
   )
   assert.ok(
     bankingCaseStudyImages.every(

@@ -22,7 +22,7 @@ The portfolio and its project repositories have complementary roles:
 - [Live application](https://finaccess-eswatini.vercel.app)
 - [Portfolio case study](https://thandofana.github.io/#/project/finaccess-eswatini)
 
-**Eswatini Banking Sector Analytics** is a PostgreSQL analytics and reporting project built from official Central Bank statistical releases.
+**Eswatini Banking Sector Analytics** is a PostgreSQL analytics and completed three-page Power BI dashboard project built from official Central Bank statistical releases.
 
 - [Project repository](https://github.com/thandofana/eswatini-banking-sql-analysis)
 - [Portfolio case study](https://thandofana.github.io/#/project/eswatini-banking-sql-analysis)
