@@ -212,6 +212,10 @@ async function inspectPage(port, route, viewport) {
           const executiveGrid = document.querySelector('.executive-summary')
           const skillsGrid = document.querySelector('.skills-tools-grid')
           const firstResult = document.querySelector('.result-entry')
+          const heroVisual = document.querySelector('.project-hero__visual')
+          const heroContainer = heroVisual?.closest('.container')
+          const heroVisualRect = heroVisual?.getBoundingClientRect()
+          const heroContainerRect = heroContainer?.getBoundingClientRect()
 
           return {
             title: document.title,
@@ -253,6 +257,12 @@ async function inspectPage(port, route, viewport) {
                 : null,
               skillsGridColumns: skillsGrid ? getComputedStyle(skillsGrid).gridTemplateColumns : null,
               resultGridColumns: firstResult ? getComputedStyle(firstResult).gridTemplateColumns : null,
+              heroVisual: heroVisualRect && heroContainerRect ? {
+                width: heroVisualRect.width,
+                leftInset: heroVisualRect.left - heroContainerRect.left,
+                rightInset: heroContainerRect.right - heroVisualRect.right,
+                containerWidth: heroContainerRect.width,
+              } : null,
             },
           }
         })()
@@ -291,6 +301,19 @@ async function inspectPage(port, route, viewport) {
     }
 
     if (route === '/#/project/finaccess-eswatini') {
+      const expectedSkillsColumns = viewport.width <= 768 ? 1 : 3
+      const expectedHeroWidth = viewport.width <= 768
+        ? result.layout.heroVisual.containerWidth
+        : (result.layout.heroVisual.containerWidth - Math.min(64, Math.max(32, viewport.width * 0.04))) / 2
+
+      assert.ok(
+        Math.abs(result.layout.heroVisual.leftInset - result.layout.heroVisual.rightInset) < 1,
+        `${url} project preview is not centred at ${viewport.width}px.`,
+      )
+      assert.ok(
+        Math.abs(result.layout.heroVisual.width - expectedHeroWidth) < 1,
+        `${url} project preview does not match the homepage card width at ${viewport.width}px.`,
+      )
       assert.equal(
         countGridTracks(result.layout.methodologyGridColumns),
         1,
@@ -303,7 +326,7 @@ async function inspectPage(port, route, viewport) {
       )
       assert.equal(
         countGridTracks(result.layout.skillsGridColumns),
-        1,
+        expectedSkillsColumns,
         `${url} has an unexpected skills layout at ${viewport.width}px.`,
       )
       assert.equal(

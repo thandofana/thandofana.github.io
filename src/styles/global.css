@@ -123,9 +123,9 @@ p {
 .brand {
   display: inline-flex;
   align-items: center;
-  color: var(--color-text);
+  color: var(--color-accent);
   font-size: var(--text-sm);
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.02em;
   text-decoration: none;
 }
@@ -206,17 +206,22 @@ p {
   letter-spacing: 0.035em;
 }
 
+.gallery-intro h1,
+.projects-gallery h2 {
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
 /* Project gallery */
 .projects-gallery {
   padding-block: clamp(4.5rem, 8vw, 8rem);
 }
 
 .projects-gallery__heading {
-  max-width: 48rem;
+  width: 100%;
 }
 
 .projects-gallery__heading > p {
-  max-width: 43ch;
   margin-top: var(--space-8);
   font-size: var(--text-lg);
 }
@@ -271,7 +276,6 @@ p {
 }
 
 .project-card__summary {
-  max-width: 47ch;
   margin-top: var(--space-4);
 }
 
@@ -337,14 +341,12 @@ p {
 }
 
 .project-hero h1 {
-  max-width: 14ch;
   margin-top: var(--space-6);
   font-size: clamp(3.25rem, 2rem + 4.75vw, 7.25rem);
   line-height: 0.91;
 }
 
 .project-hero__summary {
-  max-width: 48ch;
   margin-top: var(--space-8);
   color: var(--color-text);
   font-size: clamp(1.15rem, 1.02rem + 0.42vw, 1.4rem);
@@ -352,8 +354,9 @@ p {
 }
 
 .project-hero__visual {
+  width: calc((100% - clamp(2rem, 4vw, 4rem)) / 2);
   overflow: hidden;
-  margin: clamp(3.5rem, 7vw, 6.5rem) 0 0;
+  margin: clamp(3.5rem, 7vw, 6.5rem) auto 0;
   border: 1px solid var(--color-border);
   background: var(--color-surface-muted);
 }
@@ -376,7 +379,7 @@ p {
 }
 
 .case-study-section__heading {
-  max-width: 50rem;
+  width: 100%;
 }
 
 .case-study-section__heading > p {
@@ -388,14 +391,12 @@ p {
 }
 
 .case-study-section__heading h2 {
-  max-width: 19ch;
   font-size: clamp(2rem, 1.55rem + 1.35vw, 3rem);
   line-height: 1.02;
 }
 
 .case-study-section__introduction,
 .case-study-section__lead {
-  max-width: 66ch;
   margin-top: var(--space-10);
   color: var(--color-text);
   font-size: var(--text-lg);
@@ -403,7 +404,6 @@ p {
 
 .executive-summary {
   display: grid;
-  max-width: 50rem;
   margin-top: clamp(3rem, 6vw, 5rem);
   gap: var(--space-8);
   grid-template-columns: 1fr;
@@ -433,7 +433,6 @@ p {
 
 .business-problem-grid {
   display: grid;
-  max-width: 50rem;
   gap: var(--space-8);
   margin-top: clamp(3rem, 6vw, 5rem);
   grid-template-columns: 1fr;
@@ -449,7 +448,6 @@ p {
 
 .methodology-flow {
   display: grid;
-  max-width: 50rem;
   margin: clamp(3rem, 6vw, 5rem) 0 0;
   padding: 0;
   grid-template-columns: 1fr;
@@ -492,10 +490,9 @@ p {
 
 .skills-tools-grid {
   display: grid;
-  max-width: 50rem;
   margin-top: clamp(3rem, 6vw, 5rem);
-  gap: var(--space-8);
-  grid-template-columns: 1fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .skills-tools-grid article {
@@ -511,13 +508,16 @@ p {
 }
 
 .skills-tools-grid ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
   margin: var(--space-6) 0 0;
   padding: 0;
   list-style: none;
 }
 
 .skills-tools-grid li {
-  padding-block: var(--space-3);
+  padding-block: var(--space-1);
   color: var(--color-text-muted);
   font-size: var(--text-sm);
 }
@@ -527,7 +527,6 @@ p {
 }
 
 .result-entry {
-  max-width: 64rem;
   padding-block: clamp(2.5rem, 5vw, 4.5rem);
 }
 
@@ -590,20 +589,17 @@ p {
 }
 
 .result-metrics dd {
-  max-width: 31ch;
   margin: var(--space-4) 0 0;
   color: var(--color-text-muted);
   font-size: var(--text-sm);
 }
 
 .result-entry__interpretation {
-  max-width: 66ch;
   margin-top: var(--space-4);
 }
 
 .recommendations-list,
 .text-list-section {
-  max-width: 50rem;
   margin: clamp(3rem, 6vw, 5rem) 0 0;
   padding: 0;
   list-style: none;
@@ -629,12 +625,10 @@ p {
 }
 
 .recommendations-list p {
-  max-width: 62ch;
   margin-top: var(--space-4);
 }
 
 .text-list-section p {
-  max-width: 68ch;
   color: var(--color-text);
 }
 
@@ -729,8 +723,12 @@ p {
     grid-template-columns: 1fr;
   }
 
-  .projects-gallery__heading > p {
-    max-width: 38rem;
+  .skills-tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-hero__visual {
+    width: 100%;
   }
 
   .project-hero {
@@ -762,7 +760,6 @@ p {
   }
 
   .gallery-intro p {
-    max-width: 22rem;
     line-height: 1.5;
   }
 
