@@ -22,6 +22,16 @@ try {
     React.createElement(ProjectCaseStudy, { project: projects[0], nextProject: null }),
   )
   const caseStudyImages = [...caseStudyHtml.matchAll(/<img\b[^>]*>/g)].map((match) => match[0])
+  const bankingProject = projects.find(
+    (project) => project.slug === 'eswatini-banking-sql-analysis',
+  )
+  assert.ok(bankingProject, 'The Eswatini banking SQL project must exist in project data.')
+  const bankingCaseStudyHtml = renderToStaticMarkup(
+    React.createElement(ProjectCaseStudy, { project: bankingProject, nextProject: projects[0] }),
+  )
+  const bankingCaseStudyImages = [...bankingCaseStudyHtml.matchAll(/<img\b[^>]*>/g)].map(
+    (match) => match[0],
+  )
   const anchorTargets = [...html.matchAll(/href="#(?!\/)([^"]+)"/g)].map((match) => match[1])
   const projectRoutes = [...html.matchAll(/href="#\/project\/([^"]+)"/g)].map(
     (match) => match[1],
@@ -108,6 +118,18 @@ try {
     'The optional project highlight must render from project data.',
   )
   assert.ok(html.includes('View Project'), 'Every card must expose the internal project action.')
+  assert.ok(
+    html.includes('02 / SQL Analytics') && html.includes('Eswatini Banking Sector Analytics'),
+    'The verified Eswatini banking SQL project must render.',
+  )
+  assert.ok(
+    html.includes('PostgreSQL analysis of lending, deposits, liquidity, credit and monetary conditions in Eswatini.'),
+    'The banking project card must explain its analytical scope.',
+  )
+  assert.ok(
+    html.includes('Loan growth +28.45%'),
+    'The verified banking project result must render on its card.',
+  )
 
   assert.ok(!html.includes('id="about"'), 'The homepage must not render an About section.')
   assert.ok(!html.includes('id="skills"'), 'The homepage must not render a Skills section.')
@@ -145,6 +167,11 @@ try {
     'The FinAccess hash must resolve to its project view.',
   )
   assert.deepEqual(
+    parseHashRoute('#/project/eswatini-banking-sql-analysis'),
+    { type: 'project', slug: 'eswatini-banking-sql-analysis' },
+    'The Eswatini banking hash must resolve to its project view.',
+  )
+  assert.deepEqual(
     parseHashRoute('#/unknown'),
     { type: 'not-found' },
     'Unknown routed hashes must resolve to the not-found view.',
@@ -165,6 +192,15 @@ try {
   for (const title of caseStudySectionTitles) {
     const sectionIndex = caseStudyHtml.indexOf(`>${title}</h2>`)
     assert.ok(sectionIndex > previousSectionIndex, `${title} must render in the approved case-study order.`)
+    previousSectionIndex = sectionIndex
+  }
+  previousSectionIndex = -1
+  for (const title of caseStudySectionTitles) {
+    const sectionIndex = bankingCaseStudyHtml.indexOf(`>${title}</h2>`)
+    assert.ok(
+      sectionIndex > previousSectionIndex,
+      `${title} must render in the banking case study's approved order.`,
+    )
     previousSectionIndex = sectionIndex
   }
 
@@ -241,6 +277,55 @@ try {
     'Every external case-study link must use a safe relationship attribute.',
   )
 
+  assert.ok(
+    bankingCaseStudyHtml.includes('<h1>Eswatini Banking Sector Analytics</h1>') &&
+      bankingCaseStudyHtml.includes('02 / SQL Analytics') &&
+      bankingCaseStudyHtml.includes('2026'),
+    'The banking case study must render its verified identity.',
+  )
+  assert.ok(
+    bankingCaseStudyHtml.includes(
+      'href="https://github.com/thandofana/eswatini-banking-sql-analysis"',
+    ),
+    'The banking case study must link to its repository.',
+  )
+  assert.ok(
+    !bankingCaseStudyHtml.includes('Open Interactive Dashboard'),
+    'The banking case study must not claim an interactive dashboard that is not published.',
+  )
+  assert.ok(
+    bankingCaseStudyHtml.includes('+28.45%') &&
+      bankingCaseStudyHtml.includes('+20.55%') &&
+      bankingCaseStudyHtml.includes('30 / 30') &&
+      bankingCaseStudyHtml.includes('E1.753bn–E6.468bn'),
+    'The banking case study must retain its verified headline findings.',
+  )
+  assert.ok(
+    bankingCaseStudyHtml.includes('15 of 15 business questions') &&
+      bankingCaseStudyHtml.includes('does not establish causation'),
+    'The banking case study must preserve validation evidence and analytical boundaries.',
+  )
+  assert.equal(
+    bankingCaseStudyImages.length,
+    1,
+    'The banking case study must use one honest summary visual until dashboard screenshots exist.',
+  )
+  assert.ok(
+    bankingCaseStudyImages.every(
+      (image) =>
+        /\balt="[^"]+"/.test(image) &&
+        /\bwidth="\d+"/.test(image) &&
+        /\bheight="\d+"/.test(image),
+    ),
+    'The banking case-study visual must be described and reserve its dimensions.',
+  )
+  assert.ok(
+    [...bankingCaseStudyHtml.matchAll(/<a\b[^>]*target="_blank"[^>]*>/g)].every((match) =>
+      /\brel="noreferrer"/.test(match[0]),
+    ),
+    'Every external banking case-study link must use a safe relationship attribute.',
+  )
+
   const powerBiStaticProject = {
     ...projects[0],
     title: 'Power BI support fixture',
@@ -312,6 +397,7 @@ try {
         caseStudySections: caseStudySectionTitles.length,
         caseStudyRouteVerified: true,
         caseStudyImages: caseStudyImages.length,
+        bankingCaseStudyImages: bankingCaseStudyImages.length,
         developmentPlaceholders: 0,
         powerBiStaticFallbackVerified: true,
         powerBiPublicActionVerified: true,

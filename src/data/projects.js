@@ -7,6 +7,7 @@ import globalShapImportance from '../assets/finaccess/global-shap-importance.png
 import mobileMoneyEvaluation from '../assets/finaccess/mobile-money-evaluation.png'
 import overallAccessRates from '../assets/finaccess/overall-access-rates.png'
 import socioeconomicPatterns from '../assets/finaccess/socioeconomic-patterns.png'
+import bankingSectorSummary from '../assets/banking/banking-sector-summary.svg'
 
 const projects = [
   {
@@ -332,6 +333,240 @@ const projects = [
     repositoryUrl: 'https://github.com/thandofana/finaccess-eswatini',
     readmeUrl: 'https://github.com/thandofana/finaccess-eswatini/blob/main/README.md',
     liveUrl: 'https://finaccess-eswatini.vercel.app',
+    featured: true,
+  },
+  {
+    number: '02',
+    title: 'Eswatini Banking Sector Analytics',
+    slug: 'eswatini-banking-sql-analysis',
+    category: 'SQL Analytics',
+    year: '2026',
+    presentation: {
+      kind: 'power-bi',
+    },
+    status: 'complete',
+    statusLabel: 'Completed',
+    subtitle: 'PostgreSQL banking analytics using official Central Bank statistics',
+    cardSummary:
+      'PostgreSQL analysis of lending, deposits, liquidity, credit and monetary conditions in Eswatini.',
+    highlight: 'Loan growth +28.45%',
+    summary:
+      'A revision-aware SQL analytics and reporting system built from 21 Central Bank of Eswatini statistical releases.',
+    focus: 'Banking-sector performance, liquidity, credit and monetary conditions',
+    dataSource: 'Central Bank of Eswatini Monthly Statistical Release',
+    methods: 'PDF extraction · Revision handling · PostgreSQL · Time-series SQL · Reporting views',
+    image: bankingSectorSummary,
+    imageAlt:
+      'Project summary visual for Eswatini Banking Sector Analytics showing verified loan growth, data coverage and SQL validation metrics',
+    imageWidth: 1440,
+    imageHeight: 1050,
+    executiveSummary: {
+      businessProblem:
+        'Banking and monetary indicators are distributed across recurring official PDFs with overlapping months and revised figures, making consistent historical analysis difficult.',
+      headlineResult:
+        'The validated monthly model shows loans grew 28.45% from January 2024 to June 2026, compared with 20.55% growth in deposits.',
+      recommendation:
+        'Monitor lending and deposit momentum together with liquidity, credit composition and reserve conditions, while treating the findings as descriptive rather than causal.',
+    },
+    businessProblem: {
+      overview:
+        'The Central Bank releases important banking, monetary and reserve indicators through recurring PDF reports. Because reporting periods overlap and later publications may revise earlier figures, a simple file-by-file comparison can produce inconsistent time series. This project created a traceable monthly model that preserves source lineage, resolves revisions transparently and keeps reserve dates separate from banking dates.',
+      stakeholders:
+        'Banking analysts, financial-sector researchers, policymakers, reporting teams and decision-makers monitoring Eswatini’s financial conditions.',
+      question:
+        'How did lending, deposits, liquidity, credit composition, money and reserves change across the available reporting period, and how can those measures be delivered through a reusable SQL reporting layer?',
+      decisionContext:
+        'The analysis supports historical monitoring, recurring reporting and evidence-led investigation. It does not set prudential thresholds, forecast future conditions or establish why the observed changes occurred.',
+    },
+    methodology: {
+      introduction:
+        'The workflow separates source extraction from analytical calculation: Python prepares revision-aware datasets, while PostgreSQL owns the model, time-series logic, quality checks and reporting outputs.',
+      steps: [
+        {
+          title: 'Source inventory',
+          description:
+            'Catalogued 21 Central Bank statistical releases, their reporting periods, relevant pages and format differences.',
+        },
+        {
+          title: 'PDF extraction',
+          description:
+            'Used Python, pdfplumber and Poppler to extract 1,449 observations while retaining observation-level source lineage.',
+        },
+        {
+          title: 'Revision handling',
+          description:
+            'Compared overlapping releases and selected figures through a documented publication-order rule instead of silently overwriting history.',
+        },
+        {
+          title: 'Data validation',
+          description:
+            'Checked coverage, unique month keys, units, numeric validity and published reconciliation differences before loading the analytical model.',
+        },
+        {
+          title: 'Database modelling',
+          description:
+            'Built a compact monthly star schema with a conformed date dimension and separate banking, monetary and reserve fact tables.',
+        },
+        {
+          title: 'SQL analysis',
+          description:
+            'Answered 15 business questions using joins, CTEs, CASE logic, exact-date LAG and LEAD comparisons, rolling windows and ranking functions.',
+        },
+        {
+          title: 'Reporting layer',
+          description:
+            'Created three governed views so KPI definitions remain in SQL and downstream reporting receives stable, reusable fields.',
+        },
+        {
+          title: 'Quality gates',
+          description:
+            'Rebuilt and tested the full pipeline through PostgreSQL 18.6, with 15 of 15 analytical questions and all reporting checks passing.',
+        },
+      ],
+    },
+    skillsTools: [
+      {
+        group: 'SQL & database',
+        items: [
+          'PostgreSQL 18.6',
+          'Schema design',
+          'Keys & constraints',
+          'JOIN & LEFT JOIN',
+          'CTEs & CASE',
+          'LAG & LEAD',
+          'Rolling windows',
+          'Ranking functions',
+          'Reporting views',
+        ],
+      },
+      {
+        group: 'Data preparation & quality',
+        items: [
+          'Python',
+          'Pandas',
+          'pdfplumber',
+          'Poppler',
+          'PDF extraction',
+          'Revision handling',
+          'Source lineage',
+          'Automated validation',
+        ],
+      },
+      {
+        group: 'Analysis & reporting',
+        items: [
+          'Banking KPIs',
+          'Time-series analysis',
+          'Growth analysis',
+          'Liquidity analysis',
+          'Data dictionary',
+          'Power BI specification',
+          'Reproducible reporting',
+        ],
+      },
+    ],
+    results: [
+      {
+        title: 'Lending and deposit growth',
+        metrics: [
+          { value: '+28.45%', label: 'Loan growth, January 2024 to June 2026' },
+          { value: '+20.55%', label: 'Deposit growth over the same period' },
+        ],
+        interpretation:
+          'Loans expanded faster across the full period, although deposits grew faster in 10 of 18 valid year-on-year comparison months. The different endpoint and recent-year patterns make both measures important to monitor together.',
+      },
+      {
+        title: 'Deposit composition',
+        metrics: [
+          { value: '+32.92%', label: 'Time-deposit growth' },
+          { value: '58.62%', label: 'Time-deposit share in June 2026' },
+        ],
+        interpretation:
+          'Time deposits were the largest and fastest-growing reported deposit category. The figures show a change in funding composition, but the source data does not identify the reasons for that shift.',
+      },
+      {
+        title: 'Loan-to-deposit position',
+        metrics: [
+          { value: '67.56%–86.57%', label: 'Calculated ratio range' },
+          { value: '79.88%', label: 'Ratio in June 2026' },
+        ],
+        interpretation:
+          'Loans remained below the reported deposit base in every month, while the ratio’s wide range shows that lending and deposits did not move in parallel.',
+      },
+      {
+        title: 'Liquidity conditions',
+        metrics: [
+          { value: '30 / 30', label: 'Months with a positive liquidity surplus' },
+          { value: 'E1.753bn–E6.468bn', label: 'Calculated surplus range' },
+        ],
+        interpretation:
+          'The difference between liquid assets and the reported requirement remained positive throughout the banking series, but the size of the buffer varied materially and ended below its late-2025 peak.',
+      },
+      {
+        title: 'Credit composition',
+        metrics: [
+          { value: '+37.98%', label: 'Business-credit growth' },
+          { value: '+17.10%', label: 'Households & NPISH credit growth' },
+        ],
+        interpretation:
+          'Business credit led across the full horizon, while monthly growth leadership was nearly even: business led in 15 valid comparisons and households in 14.',
+      },
+      {
+        title: 'Reserve and import-cover conditions',
+        metrics: [
+          { value: 'E7.844bn–E15.476bn', label: 'Gross official reserve range' },
+          { value: '2.30 months', label: 'Import cover in July 2026' },
+        ],
+        interpretation:
+          'Reserve levels varied considerably and import cover ended 0.40 months below its January 2024 level. Reserve months remain separate from the banking series so July 2026 is not forward-filled into other domains.',
+      },
+      {
+        title: 'Validated analytical system',
+        metrics: [
+          { value: '1,449', label: 'Extracted observations' },
+          { value: '0', label: 'Critical cleaning and validation errors' },
+        ],
+        interpretation:
+          'The end-to-end rebuild parsed all 21 releases, loaded the PostgreSQL model, executed 15 of 15 business questions and passed all 12 reporting-layer checks.',
+      },
+    ],
+    recommendations: [
+      {
+        title: 'Track lending and funding together',
+        description:
+          'Review loan growth alongside deposit growth and the calculated loan-to-deposit ratio so the full-period expansion and shorter-horizon funding pattern remain visible in the same monitoring view.',
+      },
+      {
+        title: 'Keep liquidity variation visible',
+        description:
+          'Monitor the liquidity surplus as a changing buffer rather than relying only on its positive sign. The project deliberately applies no invented regulatory threshold.',
+      },
+      {
+        title: 'Separate internal and external conditions',
+        description:
+          'Assess credit composition, reserve movements and import cover as related monitoring signals while preserving their distinct dates and avoiding causal interpretation.',
+      },
+    ],
+    nextSteps: [
+      'Implement the specified three-page Power BI report from the governed SQL views, then capture screenshots only after the connected report has been verified.',
+      'Append future Central Bank releases through the same revision-aware pipeline and rerun the documented quality gates.',
+      'Automate recurring extraction and validation checks while preserving the source inventory and revision log.',
+      'Add explicit uncertainty or source-warning annotations to downstream reporting for the documented July reconciliation exceptions.',
+    ],
+    limitations: [
+      'Central Bank figures may be revised by later releases, so results reflect the 21-source publication set used in the project.',
+      'Publication ordering uses the second cover-period month as a documented proxy.',
+      'July 2024 and July 2025 contain source-published component and total inconsistencies that were retained rather than rewritten.',
+      'The household series includes non-profit institutions serving households (NPISH).',
+      'Import-cover values are revision-prone because the underlying import inputs lag.',
+      'The analysis is descriptive and does not establish causation, forecast outcomes or assess regulatory adequacy.',
+      'The repository contains a complete Power BI specification but not a connected .pbix file or dashboard screenshots.',
+    ],
+    responsibleUse:
+      'Independent descriptive analysis for historical monitoring and decision support—not a forecast, causal study or regulatory assessment.',
+    repositoryUrl: 'https://github.com/thandofana/eswatini-banking-sql-analysis',
+    readmeUrl: 'https://github.com/thandofana/eswatini-banking-sql-analysis/blob/main/README.md',
+    liveUrl: null,
     featured: true,
   },
 ]

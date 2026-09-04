@@ -306,7 +306,7 @@ async function inspectPage(port, route, viewport) {
       )
     }
 
-    if (route === '/#/project/finaccess-eswatini') {
+    if (route.startsWith('/#/project/') && route !== '/#/project/not-a-project') {
       const expectedSkillsColumns = viewport.width <= 768 ? 1 : 3
       const expectedHeroWidth = viewport.width <= 768
         ? result.layout.heroVisual.containerWidth
@@ -377,7 +377,11 @@ const viewports = [
   { width: 1024, height: 768 },
   { width: 1440, height: 900 },
 ]
-const routes = ['/#/', '/#/project/finaccess-eswatini']
+const routes = [
+  '/#/',
+  '/#/project/finaccess-eswatini',
+  '/#/project/eswatini-banking-sql-analysis',
+]
 
 try {
   await waitForBrowser(port)

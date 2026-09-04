@@ -15,12 +15,17 @@ The portfolio and its project repositories have complementary roles:
 - The portfolio emphasizes the problem, strongest findings, visuals, and business value.
 - Each GitHub README explains methodology, implementation, reproducibility, setup, validation, and code navigation.
 
-## Featured case study
+## Featured case studies
 
 **FinAccess Eswatini** is an explainable machine-learning application for analysing financial inclusion and mobile-money adoption in Eswatini.
 
 - [Live application](https://finaccess-eswatini.vercel.app)
 - [Portfolio case study](https://thandofana.github.io/#/project/finaccess-eswatini)
+
+**Eswatini Banking Sector Analytics** is a PostgreSQL analytics and reporting project built from official Central Bank statistical releases.
+
+- [Project repository](https://github.com/thandofana/eswatini-banking-sql-analysis)
+- [Portfolio case study](https://thandofana.github.io/#/project/eswatini-banking-sql-analysis)
 
 ## Technology stack
 

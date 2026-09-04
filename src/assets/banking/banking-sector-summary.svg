@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 1050" width="1440" height="1050">
+  <rect width="1440" height="1050" fill="#f3f0e9"/>
+  <rect x="54" y="54" width="1332" height="942" rx="26" fill="#ffffff" stroke="#d9d5cb" stroke-width="2"/>
+
+  <g font-family="Arial, Helvetica, sans-serif" fill="#17375e">
+    <text x="112" y="140" font-size="20" font-weight="700" letter-spacing="4">PROJECT SUMMARY</text>
+    <text x="112" y="220" font-size="54" font-weight="700">Eswatini Banking</text>
+    <text x="112" y="282" font-size="54" font-weight="700">Sector Analytics</text>
+    <text x="112" y="330" font-size="24" fill="#5f6772">PostgreSQL analysis of official Central Bank statistics</text>
+  </g>
+
+  <g transform="translate(112 398)" font-family="Arial, Helvetica, sans-serif">
+    <rect width="360" height="182" rx="18" fill="#17375e"/>
+    <text x="28" y="46" fill="#b9d8d0" font-size="17" font-weight="700" letter-spacing="2">LOAN GROWTH</text>
+    <text x="28" y="119" fill="#ffffff" font-size="58" font-weight="700">+28.45%</text>
+    <text x="28" y="153" fill="#dce7ee" font-size="17">Jan 2024 – Jun 2026</text>
+  </g>
+
+  <g transform="translate(496 398)" font-family="Arial, Helvetica, sans-serif">
+    <rect width="360" height="182" rx="18" fill="#e8f1ee"/>
+    <text x="28" y="46" fill="#23675d" font-size="17" font-weight="700" letter-spacing="2">VALIDATED SCOPE</text>
+    <text x="28" y="119" fill="#17375e" font-size="58" font-weight="700">30</text>
+    <text x="126" y="119" fill="#17375e" font-size="25" font-weight="700">months</text>
+    <text x="28" y="153" fill="#5f6772" font-size="17">Complete banking series</text>
+  </g>
+
+  <g transform="translate(880 398)" font-family="Arial, Helvetica, sans-serif">
+    <rect width="360" height="182" rx="18" fill="#f0e8d8"/>
+    <text x="28" y="46" fill="#826422" font-size="17" font-weight="700" letter-spacing="2">SQL ANALYSIS</text>
+    <text x="28" y="119" fill="#17375e" font-size="58" font-weight="700">15 / 15</text>
+    <text x="28" y="153" fill="#5f6772" font-size="17">Business questions executed</text>
+  </g>
+
+  <g transform="translate(112 642)" font-family="Arial, Helvetica, sans-serif">
+    <text x="0" y="0" fill="#17375e" font-size="18" font-weight="700" letter-spacing="2">ANALYTICS PIPELINE</text>
+    <g transform="translate(0 38)">
+      <rect width="222" height="120" rx="14" fill="#f8f7f3" stroke="#d9d5cb" stroke-width="2"/>
+      <text x="24" y="48" fill="#17375e" font-size="22" font-weight="700">21 CBE PDFs</text>
+      <text x="24" y="80" fill="#5f6772" font-size="17">Official releases</text>
+    </g>
+    <path d="M238 98h44" stroke="#5f8f87" stroke-width="4" stroke-linecap="round"/>
+    <path d="m274 88 12 10-12 10" fill="none" stroke="#5f8f87" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <g transform="translate(302 38)">
+      <rect width="222" height="120" rx="14" fill="#f8f7f3" stroke="#d9d5cb" stroke-width="2"/>
+      <text x="24" y="48" fill="#17375e" font-size="22" font-weight="700">Python</text>
+      <text x="24" y="80" fill="#5f6772" font-size="17">Extract &amp; validate</text>
+    </g>
+    <path d="M540 98h44" stroke="#5f8f87" stroke-width="4" stroke-linecap="round"/>
+    <path d="m576 88 12 10-12 10" fill="none" stroke="#5f8f87" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <g transform="translate(604 38)">
+      <rect width="222" height="120" rx="14" fill="#f8f7f3" stroke="#d9d5cb" stroke-width="2"/>
+      <text x="24" y="48" fill="#17375e" font-size="22" font-weight="700">PostgreSQL</text>
+      <text x="24" y="80" fill="#5f6772" font-size="17">Model &amp; analyse</text>
+    </g>
+    <path d="M842 98h44" stroke="#5f8f87" stroke-width="4" stroke-linecap="round"/>
+    <path d="m878 88 12 10-12 10" fill="none" stroke="#5f8f87" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <g transform="translate(906 38)">
+      <rect width="222" height="120" rx="14" fill="#f8f7f3" stroke="#d9d5cb" stroke-width="2"/>
+      <text x="24" y="48" fill="#17375e" font-size="22" font-weight="700">Reporting views</text>
+      <text x="24" y="80" fill="#5f6772" font-size="17">Governed outputs</text>
+    </g>
+  </g>
+
+  <g transform="translate(112 884)" font-family="Arial, Helvetica, sans-serif">
+    <circle cx="10" cy="-7" r="10" fill="#5f8f87"/>
+    <text x="34" y="0" fill="#5f6772" font-size="19">1,449 observations</text>
+    <circle cx="278" cy="-7" r="10" fill="#5f8f87"/>
+    <text x="302" y="0" fill="#5f6772" font-size="19">3 reporting views</text>
+    <circle cx="534" cy="-7" r="10" fill="#5f8f87"/>
+    <text x="558" y="0" fill="#5f6772" font-size="19">0 critical validation errors</text>
+  </g>
+</svg>
