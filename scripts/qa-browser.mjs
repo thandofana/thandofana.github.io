@@ -208,6 +208,7 @@ async function inspectPage(port, route, viewport) {
           const links = [...document.querySelectorAll('a')]
           const focusedStyle = getComputedStyle(document.activeElement)
           const projectGrid = document.querySelector('.project-grid')
+          const firstProjectCard = document.querySelector('.project-card')
           const methodologyGrid = document.querySelector('.methodology-flow')
           const executiveGrid = document.querySelector('.executive-summary')
           const skillsGrid = document.querySelector('.skills-tools-grid')
@@ -249,6 +250,7 @@ async function inspectPage(port, route, viewport) {
             },
             layout: {
               projectGridColumns: projectGrid ? getComputedStyle(projectGrid).gridTemplateColumns : null,
+              firstProjectCardTop: firstProjectCard?.getBoundingClientRect().top ?? null,
               methodologyGridColumns: methodologyGrid
                 ? getComputedStyle(methodologyGrid).gridTemplateColumns
                 : null,
@@ -297,6 +299,10 @@ async function inspectPage(port, route, viewport) {
         countGridTracks(result.layout.projectGridColumns),
         expectedColumns,
         `${url} has an unexpected project-card layout at ${viewport.width}px.`,
+      )
+      assert.ok(
+        result.layout.firstProjectCardTop < viewport.height,
+        `${url} does not introduce the first project within the initial viewport at ${viewport.width}px.`,
       )
     }
 
