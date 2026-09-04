@@ -8,6 +8,7 @@ function ResultsGallery({ results }) {
           <article className="result-entry" key={result.title}>
             <p className="result-entry__number">{String(index + 1).padStart(2, '0')}</p>
             <h3>{result.title}</h3>
+            <p className="result-entry__interpretation">{result.interpretation}</p>
             {result.visuals?.length > 0 && (
               <div className="result-entry__visuals">
                 {result.visuals.map((visual) => (
@@ -35,7 +36,6 @@ function ResultsGallery({ results }) {
                 ))}
               </dl>
             )}
-            <p className="result-entry__interpretation">{result.interpretation}</p>
           </article>
         ))}
       </div>

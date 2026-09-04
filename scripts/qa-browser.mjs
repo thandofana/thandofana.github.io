@@ -291,30 +291,26 @@ async function inspectPage(port, route, viewport) {
     }
 
     if (route === '/#/project/finaccess-eswatini') {
-      const expectedMethodologyColumns = viewport.width <= 480 ? 1 : viewport.width <= 768 ? 2 : 3
-      const expectedSummaryColumns = viewport.width <= 768 ? 1 : 3
       assert.equal(
         countGridTracks(result.layout.methodologyGridColumns),
-        expectedMethodologyColumns,
+        1,
         `${url} has an unexpected methodology layout at ${viewport.width}px.`,
       )
       assert.equal(
         countGridTracks(result.layout.executiveGridColumns),
-        expectedSummaryColumns,
+        1,
         `${url} has an unexpected executive-summary layout at ${viewport.width}px.`,
       )
       assert.equal(
         countGridTracks(result.layout.skillsGridColumns),
-        expectedSummaryColumns,
+        1,
         `${url} has an unexpected skills layout at ${viewport.width}px.`,
       )
-      if (viewport.width <= 480) {
-        assert.equal(
-          countGridTracks(result.layout.resultGridColumns),
-          1,
-          `${url} results do not stack at ${viewport.width}px.`,
-        )
-      }
+      assert.equal(
+        countGridTracks(result.layout.resultGridColumns),
+        1,
+        `${url} results do not follow one reading column at ${viewport.width}px.`,
+      )
     }
 
     return {

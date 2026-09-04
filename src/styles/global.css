@@ -212,14 +212,12 @@ p {
 }
 
 .projects-gallery__heading {
-  display: grid;
-  align-items: end;
-  gap: clamp(2.5rem, 8vw, 8rem);
-  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.55fr);
+  max-width: 48rem;
 }
 
 .projects-gallery__heading > p {
   max-width: 43ch;
+  margin-top: var(--space-8);
   font-size: var(--text-lg);
 }
 
@@ -378,14 +376,11 @@ p {
 }
 
 .case-study-section__heading {
-  display: grid;
-  align-items: start;
-  gap: var(--space-6);
-  grid-template-columns: minmax(3rem, 0.18fr) minmax(0, 1fr);
+  max-width: 50rem;
 }
 
 .case-study-section__heading > p {
-  padding-top: 0.4rem;
+  margin-bottom: var(--space-3);
   color: var(--color-accent);
   font-size: var(--text-xs);
   font-weight: 700;
@@ -398,32 +393,28 @@ p {
   line-height: 1.02;
 }
 
-.case-study-section__heading h2:only-child {
-  grid-column: 2;
-}
-
 .case-study-section__introduction,
 .case-study-section__lead {
   max-width: 66ch;
   margin-top: var(--space-10);
-  margin-left: calc(18% + var(--space-6));
   color: var(--color-text);
   font-size: var(--text-lg);
 }
 
 .executive-summary {
   display: grid;
+  max-width: 50rem;
   margin-top: clamp(3rem, 6vw, 5rem);
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-8);
+  grid-template-columns: 1fr;
 }
 
 .executive-summary article {
-  min-height: 15rem;
-  padding: var(--space-6) var(--space-8) var(--space-8) 0;
+  padding-block: var(--space-3);
 }
 
 .executive-summary article:not(:first-child) {
-  padding-left: var(--space-8);
+  padding-left: 0;
 }
 
 .executive-summary h3,
@@ -442,10 +433,10 @@ p {
 
 .business-problem-grid {
   display: grid;
-  gap: clamp(2rem, 6vw, 6rem);
+  max-width: 50rem;
+  gap: var(--space-8);
   margin-top: clamp(3rem, 6vw, 5rem);
-  margin-left: calc(18% + var(--space-6));
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1fr;
 }
 
 .business-problem-grid > div {
@@ -458,18 +449,27 @@ p {
 
 .methodology-flow {
   display: grid;
-  margin: clamp(3rem, 6vw, 5rem) 0 0 calc(18% + var(--space-6));
+  max-width: 50rem;
+  margin: clamp(3rem, 6vw, 5rem) 0 0;
   padding: 0;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   list-style: none;
 }
 
 .methodology-flow li {
   display: grid;
-  min-height: 12rem;
   align-content: start;
-  gap: var(--space-5);
-  padding: var(--space-5);
+  gap: var(--space-3) var(--space-4);
+  padding-block: var(--space-4);
+  grid-template-columns: 2rem minmax(0, 1fr);
+}
+
+.methodology-flow li:not(:last-child)::after {
+  grid-column: 2;
+  color: var(--color-text-faint);
+  content: '↓';
+  font-size: var(--text-lg);
+  line-height: 1;
 }
 
 .methodology-flow span {
@@ -492,17 +492,18 @@ p {
 
 .skills-tools-grid {
   display: grid;
+  max-width: 50rem;
   margin-top: clamp(3rem, 6vw, 5rem);
-  margin-left: calc(18% + var(--space-6));
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-8);
+  grid-template-columns: 1fr;
 }
 
 .skills-tools-grid article {
-  padding: var(--space-6) var(--space-8) var(--space-6) 0;
+  padding-block: var(--space-3);
 }
 
 .skills-tools-grid article:not(:first-child) {
-  padding-left: var(--space-8);
+  padding-left: 0;
 }
 
 .skills-tools-grid h3 {
@@ -526,13 +527,12 @@ p {
 }
 
 .result-entry {
-  display: grid;
-  gap: var(--space-6) clamp(2rem, 5vw, 5rem);
+  max-width: 64rem;
   padding-block: clamp(2.5rem, 5vw, 4.5rem);
-  grid-template-columns: minmax(3rem, 0.18fr) minmax(0, 1.1fr) minmax(17rem, 0.62fr);
 }
 
 .result-entry__number {
+  margin-bottom: var(--space-3);
   color: var(--color-text-faint);
   font-size: var(--text-xs);
   letter-spacing: 0.1em;
@@ -542,15 +542,10 @@ p {
   font-size: var(--text-xl);
 }
 
-.result-entry__visuals,
-.result-metrics {
-  grid-column: 2 / -1;
-}
-
 .result-entry__visuals {
   display: grid;
   gap: var(--space-8);
-  margin-top: var(--space-4);
+  margin-top: var(--space-8);
 }
 
 .result-entry__visual {
@@ -602,15 +597,14 @@ p {
 }
 
 .result-entry__interpretation {
-  align-self: start;
-  grid-column: 3;
-  grid-row: 1 / span 2;
-  padding-top: 0.15rem;
+  max-width: 66ch;
+  margin-top: var(--space-4);
 }
 
 .recommendations-list,
 .text-list-section {
-  margin: clamp(3rem, 6vw, 5rem) 0 0 calc(18% + var(--space-6));
+  max-width: 50rem;
+  margin: clamp(3rem, 6vw, 5rem) 0 0;
   padding: 0;
   list-style: none;
 }
@@ -651,7 +645,6 @@ p {
 
 .project-explore__actions {
   margin-top: clamp(3rem, 6vw, 5rem);
-  margin-left: calc(18% + var(--space-6));
 }
 
 .project-pagination {
@@ -731,31 +724,9 @@ p {
   color: var(--color-accent);
 }
 
-@media (max-width: 64rem) {
-  .result-entry {
-    grid-template-columns: minmax(3rem, 0.14fr) minmax(0, 1fr);
-  }
-
-  .result-entry__visuals,
-  .result-metrics,
-  .result-entry__interpretation {
-    grid-column: 2;
-  }
-
-  .result-entry__interpretation {
-    grid-row: auto;
-  }
-}
-
 @media (max-width: 48rem) {
-  .projects-gallery__heading,
   .project-grid {
     grid-template-columns: 1fr;
-  }
-
-  .projects-gallery__heading {
-    align-items: start;
-    gap: var(--space-8);
   }
 
   .projects-gallery__heading > p {
@@ -764,15 +735,6 @@ p {
 
   .project-hero {
     padding-top: var(--space-10);
-  }
-
-  .case-study-section__heading {
-    gap: var(--space-3);
-    grid-template-columns: 1fr;
-  }
-
-  .case-study-section__heading h2:only-child {
-    grid-column: 1;
   }
 
   .case-study-section__introduction,
@@ -786,26 +748,11 @@ p {
     margin-left: 0;
   }
 
-  .executive-summary,
-  .business-problem-grid,
-  .skills-tools-grid {
-    grid-template-columns: 1fr;
-  }
-
   .executive-summary article,
   .executive-summary article:not(:first-child),
   .skills-tools-grid article,
   .skills-tools-grid article:not(:first-child) {
-    min-height: 0;
     padding: var(--space-6) 0;
-  }
-
-  .methodology-flow {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .result-entry {
-    grid-template-columns: 2.5rem minmax(0, 1fr);
   }
 }
 
@@ -830,7 +777,6 @@ p {
     width: 100%;
   }
 
-  .methodology-flow,
   .result-metrics {
     grid-template-columns: 1fr;
   }
@@ -838,20 +784,7 @@ p {
   .methodology-flow li,
   .methodology-flow li:nth-child(2n),
   .methodology-flow li:nth-child(3n) {
-    min-height: 6.5rem;
-  }
-
-  .result-entry {
-    gap: var(--space-4);
-    grid-template-columns: 1fr;
-  }
-
-  .result-entry__number,
-  .result-entry h3,
-  .result-entry__visuals,
-  .result-metrics,
-  .result-entry__interpretation {
-    grid-column: 1;
+    min-height: 0;
   }
 
   .result-metrics div,
