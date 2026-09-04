@@ -6,14 +6,11 @@ function SiteHeader({ projectView = false }) {
     <header className="site-header">
       <Container className="site-header__inner">
         <a className="brand" href={projectView ? '#/' : '#top'} aria-label={`${profile.name}, home`}>
-          {profile.name}
+          TD
         </a>
 
         <nav className="site-nav" aria-label="Primary navigation">
           <a href={projectView ? '#/' : '#projects'}>Projects</a>
-          <a href={profile.github} target="_blank" rel="noreferrer">
-            GitHub<span className="sr-only"> (opens in a new tab)</span>
-          </a>
           <a href={profile.resume} target="_blank" rel="noreferrer">
             CV<span className="sr-only"> (opens in a new tab)</span>
           </a>

@@ -59,6 +59,7 @@ try {
     html.includes('<h1 id="gallery-title">Thando F. Dlamini</h1>'),
     'The verified name must render as the homepage title.',
   )
+  assert.ok(html.includes('>TD</a>'), 'The compact TD brand must render in the header.')
   assert.ok(
     html.includes('Data Analyst · Data Science · Applied Machine Learning'),
     'The professional focus must render beneath the homepage title.',
@@ -124,9 +125,10 @@ try {
     html.includes('href="mailto:dlaminithandofana@gmail.com"'),
     'The verified email address must remain available in the footer.',
   )
-  assert.ok(
-    html.includes('href="https://github.com/thandofana"'),
-    'The verified GitHub profile must be available from homepage navigation.',
+  assert.equal(
+    [...html.matchAll(/href="https:\/\/github\.com\/thandofana"/g)].length,
+    1,
+    'The verified GitHub profile must appear only in the footer.',
   )
   assert.ok(
     html.includes('href="/resume/Thando_Fana_Dlamini_Resume.pdf"'),
