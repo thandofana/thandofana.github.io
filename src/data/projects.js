@@ -25,6 +25,7 @@ const projects = [
     subtitle: 'Financial inclusion and mobile-money adoption in Eswatini',
     cardSummary:
       'Predicting and explaining financial inclusion using Global Findex microdata.',
+    highlight: 'ROC-AUC 0.745',
     summary:
       'An explainable machine-learning system combining survey-weighted analysis, statistical testing, two validated prediction pipelines and a responsive assessment application.',
     focus: 'Financial inclusion and mobile-money adoption',

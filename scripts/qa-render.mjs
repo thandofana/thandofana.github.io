@@ -56,12 +56,16 @@ try {
   assert.deepEqual(missingAnchorTargets, [], 'Every same-page link must resolve to an element ID.')
 
   assert.ok(
-    html.includes('<h1 id="gallery-title">Data Analytics · Machine Learning · Data Science</h1>'),
-    'The discipline line must render as the homepage title.',
+    html.includes('<h1 id="gallery-title">Thando F. Dlamini</h1>'),
+    'The verified name must render as the homepage title.',
   )
   assert.ok(
-    html.includes('>Thando F. Dlamini</a>'),
-    'The full verified name must render in the header.',
+    html.includes('Data Analyst · Data Science · Applied Machine Learning'),
+    'The professional focus must render beneath the homepage title.',
+  )
+  assert.ok(
+    html.includes('Practical data projects focused on solving real business, financial, and economic problems'),
+    'The recruiter-focused positioning statement must render.',
   )
   assert.ok(html.includes('<h2 id="projects-title">Projects.</h2>'), 'The project heading must render.')
   assert.ok(
@@ -98,6 +102,10 @@ try {
     html.includes('Predicting and explaining financial inclusion using Global Findex microdata.'),
     'The concise FinAccess card summary must render.',
   )
+  assert.ok(
+    html.includes('<span>Key Result</span> — ROC-AUC 0.745'),
+    'The optional project highlight must render from project data.',
+  )
   assert.ok(html.includes('View Project'), 'Every card must expose the internal project action.')
 
   assert.ok(!html.includes('id="about"'), 'The homepage must not render an About section.')
@@ -117,8 +125,12 @@ try {
     'The verified email address must remain available in the footer.',
   )
   assert.ok(
-    !html.includes('href="https://github.com/thandofana"'),
-    'The personal GitHub profile must remain absent.',
+    html.includes('href="https://github.com/thandofana"'),
+    'The verified GitHub profile must be available from homepage navigation.',
+  )
+  assert.ok(
+    html.includes('href="/resume/Thando_Fana_Dlamini_Resume.pdf"'),
+    'The current CV must be available from homepage navigation.',
   )
   assert.ok(!html.includes('LinkedIn'), 'LinkedIn must remain hidden until its URL is provided.')
   assert.ok(!html.includes('href="tel:'), 'Phone numbers must not render publicly.')

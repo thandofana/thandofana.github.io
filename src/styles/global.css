@@ -205,8 +205,22 @@ p {
 }
 
 .gallery-intro h1 {
-  font-size: clamp(2.25rem, 1.5rem + 2.4vw, 3.5rem);
-  line-height: 1.08;
+  font-size: clamp(2.75rem, 2.15rem + 2.25vw, 4.5rem);
+  line-height: 0.95;
+}
+
+.gallery-intro__focus {
+  margin-top: var(--space-6);
+  color: var(--color-text);
+  font-size: clamp(1.2rem, 1.02rem + 0.6vw, 1.55rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.gallery-intro__statement {
+  margin-top: var(--space-5);
+  color: var(--color-text-muted);
+  font-size: var(--text-lg);
 }
 
 .projects-gallery h2 {
@@ -279,6 +293,20 @@ p {
 
 .project-card__summary {
   margin-top: var(--space-4);
+}
+
+.project-card__highlight {
+  margin-top: var(--space-5);
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.project-card__highlight span {
+  color: var(--color-accent);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .project-card__footer {
@@ -759,6 +787,20 @@ p {
 @media (max-width: 30rem) {
   .site-header__inner {
     min-height: 4rem;
+    gap: var(--space-3);
+  }
+
+  .brand {
+    font-size: 0.75rem;
+  }
+
+  .site-nav {
+    gap: var(--space-3);
+  }
+
+  .site-nav a {
+    font-size: 0.625rem;
+    letter-spacing: 0.06em;
   }
 
   .project-grid {

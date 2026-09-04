@@ -7,8 +7,11 @@ function SiteFooter() {
       <Container className="site-footer__inner">
         <p>© {new Date().getFullYear()} {profile.name}</p>
         <nav className="site-footer__links" aria-label="Footer navigation">
-          {profile.linkedin && <a href={profile.linkedin}>LinkedIn</a>}
           <a href={`mailto:${profile.email}`}>Email</a>
+          {profile.linkedin && (
+            <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+          )}
+          <a href={profile.github} target="_blank" rel="noreferrer">GitHub</a>
         </nav>
       </Container>
     </footer>

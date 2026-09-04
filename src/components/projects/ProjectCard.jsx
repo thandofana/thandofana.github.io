@@ -23,6 +23,11 @@ function ProjectCard({ project, priority = false }) {
           </p>
           <h3 id={titleId}>{project.title}</h3>
           <p className="project-card__summary">{project.cardSummary}</p>
+          {project.highlight && (
+            <p className="project-card__highlight">
+              <span>Key Result</span> — {project.highlight}
+            </p>
+          )}
           <div className="project-card__footer">
             <span>View Project</span>
             <span aria-hidden="true">→</span>
