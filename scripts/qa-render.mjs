@@ -55,10 +55,13 @@ try {
   assert.equal(headings.h3, projects.length, 'Every project must render one card heading.')
   assert.deepEqual(missingAnchorTargets, [], 'Every same-page link must resolve to an element ID.')
 
-  assert.ok(html.includes('<h1 id="gallery-title">THANDO.</h1>'), 'The compact gallery title must render.')
   assert.ok(
-    html.includes('Data Analytics · Machine Learning · Data Science'),
-    'The approved discipline line must render.',
+    html.includes('<h1 id="gallery-title">Data Analytics · Machine Learning · Data Science</h1>'),
+    'The discipline line must render as the homepage title.',
+  )
+  assert.ok(
+    html.includes('>Thando F. Dlamini</a>'),
+    'The full verified name must render in the header.',
   )
   assert.ok(html.includes('<h2 id="projects-title">Projects.</h2>'), 'The project heading must render.')
   assert.ok(

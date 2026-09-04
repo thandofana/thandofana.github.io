@@ -13,8 +13,7 @@ function ProjectGallery() {
       <main id="main-content" tabIndex="-1">
         <section className="gallery-intro" aria-labelledby="gallery-title">
           <Container>
-            <h1 id="gallery-title">THANDO.</h1>
-            <p>Data Analytics · Machine Learning · Data Science</p>
+            <h1 id="gallery-title">Data Analytics · Machine Learning · Data Science</h1>
           </Container>
         </section>
 

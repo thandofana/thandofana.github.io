@@ -310,7 +310,7 @@ async function inspectPage(port, route, viewport) {
       const expectedSkillsColumns = viewport.width <= 768 ? 1 : 3
       const expectedHeroWidth = viewport.width <= 768
         ? result.layout.heroVisual.containerWidth
-        : (result.layout.heroVisual.containerWidth - Math.min(64, Math.max(32, viewport.width * 0.04))) / 2
+        : result.layout.heroVisual.containerWidth * 0.72
 
       assert.ok(
         Math.abs(result.layout.heroVisual.leftInset - result.layout.heroVisual.rightInset) < 1,
@@ -318,7 +318,7 @@ async function inspectPage(port, route, viewport) {
       )
       assert.ok(
         Math.abs(result.layout.heroVisual.width - expectedHeroWidth) < 1,
-        `${url} project preview does not match the homepage card width at ${viewport.width}px.`,
+        `${url} project preview does not use the approved prominent width at ${viewport.width}px.`,
       )
       assert.equal(
         countGridTracks(result.layout.methodologyGridColumns),

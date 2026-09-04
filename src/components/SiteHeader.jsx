@@ -6,7 +6,7 @@ function SiteHeader({ projectView = false }) {
     <header className="site-header">
       <Container className="site-header__inner">
         <a className="brand" href={projectView ? '#/' : '#top'} aria-label={`${profile.name}, home`}>
-          THANDO.
+          {profile.name}
         </a>
 
         <nav className="site-nav" aria-label="Primary navigation">
